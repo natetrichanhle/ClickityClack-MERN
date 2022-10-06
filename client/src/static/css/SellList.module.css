@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #393433;
+    margin: 32px;
+    padding: 32px;
+    width: calc(100%/4);
+}
+
+.btns {
+    display: flex;
+    padding: 4px;
+}
+
+.linkBtn {
+    padding: 8px 24px;
+    background-color: #8aa185;
+    border: none;
+    border-radius: 8px;
+    color: #F5F5F5;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 8px 8px;
+    opacity: 1;
+    text-decoration: none;
+    transition: 0.5s ease;
+}
+
+.linkBtn:hover {
+    opacity: 0.6;
+}
+
+.deleteBtn {
+    padding: 8px 24px;
+    background-color: #b22a2e;
+    border: none;
+    border-radius: 8px;
+    color: #F5F5F5;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 8px 8px;
+    opacity: 1;
+    transition: 0.5s ease;
+}
+
+.deleteBtn:hover {
+    opacity: 0.6;
+}
+
+.productInfo {
+    color: #f5f5f5;
+}
+
+.product {
+    padding: 8px;
+    text-decoration: none;
+}
+
+.title {
+    color: white;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.5s ease;
+}
+
+.title:hover {
+    opacity: 0.6
+}
+
+.link {
+    text-decoration: none;
+}
