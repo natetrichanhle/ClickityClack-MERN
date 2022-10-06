@@ -13,6 +13,7 @@ const Sell = ({user}) => {
         axios.post('http://localhost:8000/api/product/new', product)
             .then(res => {
                 setProducts([...products, res.data]);
+                console.log(res.data)
             })
             .catch(err => {
                 const errorResponse = err.response.data.errors;
@@ -35,6 +36,7 @@ const Sell = ({user}) => {
                     initialTitle=''
                     initialDescription=''
                     initialPrice=''
+                    initialImage=''
                 />
             </div>
         </div>

@@ -22,6 +22,9 @@ const ProductSchema = new mongoose.Schema({
             'Price is required'
         ]
     },
+    image: {
+        type: String,
+    }
 }, { timestamps: true });
 
 module.exports.Product = mongoose.model('Product', ProductSchema);

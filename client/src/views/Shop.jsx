@@ -4,7 +4,7 @@ import axios from 'axios'
 import Navbar from '../components/Navbar'
 import SellList from '../components/SellList'
 
-const Shop = ({user}) => {
+const Shop = ({ user }) => {
     const [products, setProducts] = useState([]);
     const [loaded, setLoaded] = useState(false);
 
@@ -19,8 +19,8 @@ const Shop = ({user}) => {
 
     return (
         <div>
-            <Navbar user={user}/>
-            {loaded && <SellList products={products} user={user}/>}
+            <Navbar user={user} />
+            {loaded && <SellList products={products} user={user} />}
         </div>
     )
 }
