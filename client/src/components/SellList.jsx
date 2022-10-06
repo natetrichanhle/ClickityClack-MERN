@@ -19,29 +19,27 @@ const SellList = ({ user }) => {
     }
 
     return (
-        <div>
+        <div className={styles.mainContainer}>
             {products.map((product, index) => {
                 return (
                     <div className={styles.container} key={index}>
-                        <div className={styles.productInfo}>
-                            <img src={product.image} alt="image" className={styles.img} />
-                            <Link className={styles.link} to={'/sell/' + product._id}><h3 className={`${styles.product} ${styles.title}`}>{product.title}</h3></Link>
-                            <h3 className={styles.product}>{product.description}</h3>
-                            <h3 className={styles.product}>{product.price}</h3>
-                            {user ? (
-                                <div className={styles.btns}>
-                                    <Link
-                                        to={'/sell/edit/' + product._id}
-                                        className={styles.linkBtn}
-                                    >Edit
-                                    </Link>
-                                    <DeleteButton
-                                        productId={product._id}
-                                        successCallback={() => removeFromDom(product._id)}
-                                    />
-                                </div>
-                            ) : (<></>)}
-                        </div>
+                        <img src={product.image} alt="image" className={styles.img} />
+                        <Link className={styles.link} to={'/sell/' + product._id}><h3 className={`${styles.product} ${styles.title}`}>{product.title}</h3></Link>
+                        <h3 className={styles.product}>{product.description}</h3>
+                        <h3 className={styles.product}>${product.price}</h3>
+                        {user ? (
+                            <div className={styles.btns}>
+                                <Link
+                                    to={'/sell/edit/' + product._id}
+                                    className={styles.linkBtn}
+                                >Edit
+                                </Link>
+                                <DeleteButton
+                                    productId={product._id}
+                                    successCallback={() => removeFromDom(product._id)}
+                                />
+                            </div>
+                        ) : (<></>)}
                     </div>
                 )
             })}

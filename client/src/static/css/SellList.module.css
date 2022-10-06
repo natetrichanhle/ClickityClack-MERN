@@ -4,12 +4,25 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+.mainContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .container {
+    margin: 24px;
+    width: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 32px;
-    padding: 32px;
+    flex-direction: column;
+    background-color: #393433;
+    color: #f5f5f5;
+    border-radius: 24px;
+    box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
+    -webkit-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
+    -moz-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
 }
 
 .btns {
@@ -54,15 +67,6 @@
     opacity: 0.6;
 }
 
-.productInfo {
-    color: #f5f5f5;
-    background-color: #393433;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
 .product {
     padding: 8px;
     text-decoration: none;
@@ -84,7 +88,8 @@
 }
 
 .img {
-    height: 300px;
-    width: 300px;
+    height: 100%;
+    width: 100%;
+    border-radius: 24px 24px 0px 0px;
     object-fit: cover;
 }

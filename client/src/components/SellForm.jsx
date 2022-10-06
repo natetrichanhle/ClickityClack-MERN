@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import styles from '../static/css/SellForm.module.css'
 import { useNavigate } from 'react-router-dom';
 
+import styles from '../static/css/SellForm.module.css'
 import FileBase64 from 'react-file-base64';
 
 const SellForm = (props) => {
