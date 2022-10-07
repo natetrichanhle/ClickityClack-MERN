@@ -12,11 +12,11 @@ import avatar from '../static/images/avatar.png'
 import login from '../static/images/login.png'
 import logoutIcon from '../static/images/logout.png'
 
-const Navbar = ({user}) => {
+const Navbar = ({ user }) => {
     const navigate = useNavigate();
 
     const logout = () => {
-        axios.get("http://localhost:8000/api/logout", {withCredentials: true})
+        axios.get("http://localhost:8000/api/logout", { withCredentials: true })
             .then(res => {
                 navigate("/login");
                 window.location.reload()
@@ -34,32 +34,32 @@ const Navbar = ({user}) => {
                 <ul className={styles.links}>
                     {user ? (
                         <Link className={styles.link} to='/profile'>
-                            <img src={avatar} alt="avatar" className={styles.icons}/>
+                            <img src={avatar} alt="avatar" className={styles.icons} />
                             {user.username}
                         </Link>
                     ) : (<></>)}
                     <Link className={styles.link} to='/'>
-                        <img src={home} alt="home" className={styles.icons}/>
+                        <img src={home} alt="home" className={styles.icons} />
                         Home
                     </Link>
                     <Link className={styles.link} to='/shop'>
-                        <img src={shop} alt="shop" className={styles.icons}/>
+                        <img src={shop} alt="shop" className={styles.icons} />
                         Shop
                     </Link>
                     {user ? (
                         <>
                             <Link className={styles.link} to='/sell'>
-                                <img src={sell} alt="sell" className={styles.icons}/>
+                                <img src={sell} alt="sell" className={styles.icons} />
                                 Sell
                             </Link>
                             <Link className={styles.link} onClick={logout}>
-                                <img src={logoutIcon} alt="logout" className={styles.icons}/>
+                                <img src={logoutIcon} alt="logout" className={styles.icons} />
                                 Logout
                             </Link>
                         </>
-                    ): (
+                    ) : (
                         <Link className={styles.link} to='/login'>
-                            <img src={login} alt="login" className={styles.icons}/>
+                            <img src={login} alt="login" className={styles.icons} />
                             Login / Signup
                         </Link>
                     )}

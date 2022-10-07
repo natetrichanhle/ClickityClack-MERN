@@ -16,15 +16,31 @@ const SellList = ({ user }) => {
 
     return (
         <div className={styles.mainContainer}>
-            {products.map((product, index) => {
-                return (
-                    <Link className={`${styles.container} ${styles.link}`} key={index} to={'/sell/' + product._id}>
-                        <img src={product?.image} alt="image" className={styles.img} />
-                        <h3 className={`${styles.product} ${styles.title}`}>{product.title}</h3>
-                        <h3 className={styles.product}>${product.price}</h3>
-                    </Link>
-                )
-            })}
+            {user ? (
+                <>
+                    {products.map((product, index) => {
+                        return (
+                            <Link className={`${styles.container} ${styles.link}`} key={index} to={'/sell/' + product._id}>
+                                <img src={product?.image} alt="image" className={styles.img} />
+                                <h3 className={`${styles.product} ${styles.title}`}>{product.title}</h3>
+                                <h3 className={styles.product}>${product.price}</h3>
+                            </Link>
+                        )
+                    })}
+                </>
+            ) : (
+                <>
+                    {products.map((product, index) => {
+                        return (
+                            <div className={`${styles.container} ${styles.link}`} key={index}>
+                                <img src={product?.image} alt="image" className={styles.img} />
+                                <h3 className={`${styles.product} ${styles.title}`}>{product.title}</h3>
+                                <h3 className={styles.product}>${product.price}</h3>
+                            </div>
+                        )
+                    })}
+                </>
+            )}
         </div>
     )
 }
