@@ -57,6 +57,12 @@ class UserController {
             .then(user => res.json(user.username))
             .catch(err => res.json(err))
     }
+
+    updateUser = (request, response) => {
+        User.findOneAndUpdate({ _id: request.params.id }, request.body, { new: true })
+            .then(updatedUser => response.json(updatedUser))
+            .catch(err => response.json(err))
+    }
 }
 
 

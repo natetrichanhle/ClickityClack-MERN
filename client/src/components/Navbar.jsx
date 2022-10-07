@@ -8,7 +8,6 @@ import logo from "../static/images/Logo.png"
 import home from '../static/images/home.png'
 import shop from '../static/images/shop.png'
 import sell from '../static/images/sell.png'
-import avatar from '../static/images/avatar.png'
 import login from '../static/images/login.png'
 import logoutIcon from '../static/images/logout.png'
 
@@ -25,6 +24,8 @@ const Navbar = ({ user }) => {
             .catch(err => console.log(err))
     }
 
+    console.log(user)
+
     return (
         <div className={styles.container}>
             <Link to="/">
@@ -34,7 +35,7 @@ const Navbar = ({ user }) => {
                 <ul className={styles.links}>
                     {user ? (
                         <Link className={styles.link} to='/profile'>
-                            <img src={avatar} alt="avatar" className={styles.icons} />
+                            <img src={user.avatar} alt="avatar" className={styles.avatar} />
                             {user.username}
                         </Link>
                     ) : (<></>)}

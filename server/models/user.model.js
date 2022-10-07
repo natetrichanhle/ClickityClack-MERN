@@ -32,6 +32,9 @@ const UserSchema = new mongoose.Schema(
                 message: "Please enter a valid password. Must be at least 8 characters long, contain at least one uppercase and one lowercase character, one number, and one special character."
             }
         },
+        avatar: {
+            type: String,
+        }
     },
     { timestamps: true }
 );

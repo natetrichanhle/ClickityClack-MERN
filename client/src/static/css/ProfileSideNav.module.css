@@ -7,7 +7,7 @@
 .container {
     background-color: lightgray;
     width: 300px;
-    height: calc(100vh - 129px);
+    height: calc(100vh - 132px);
     display: flex;
     justify-content: center;
     box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69) inset;
@@ -37,4 +37,9 @@
 
 .link:hover {
     opacity: 0.6;
+}
+
+.icons  {
+    width: 32px;
+    padding-right: 4px;
 }

@@ -10,7 +10,7 @@
     justify-content: center;
     flex-direction: column;
     color: #393433;
-    height: calc(100vh - 129px);
+    height: calc(100vh - 132px);
 }
 
 .viewOneContainer h1 {

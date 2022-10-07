@@ -16,6 +16,7 @@ import Shop from './views/Shop';
 import UpdateSell from './views/UpdateSell';
 import ViewOneSell from './views/ViewOneSell';
 import Profile from './views/Profile';
+import Post from './views/Posts';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -35,11 +36,12 @@ function App() {
           <Route exact path='/signup' element={<SignupForm user={user} setUser={setUser}/>}/>
           <Route exact path='/login' element={<LoginForm user={user} setUser={setUser}/>}/>
           <Route exact path='/' element={<Home user={user}/>}/>
-          <Route exact path='/sell' element={user? <Sell user={user}/> : <Navigate to='/login'/>} />
-          <Route exact path='/sell/:id' element={<ViewOneSell user={user}/>} />
-          <Route exact path='/sell/edit/:id' element={user ? <UpdateSell user={user}/> : <Navigate to='/login'/>} />
           <Route exact path='/shop' element={<Shop user={user}/>} />
-          <Route exact path='/profile' element={<Profile user={user}/>} />
+          <Route exact path='/sell' element={user? <Sell user={user}/> : <Navigate to='/login'/>} />
+          <Route exact path='/sell/:id' element={user ? <ViewOneSell user={user}/> : <Navigate to='/login'/>} />
+          <Route exact path='/sell/edit/:id' element={user ? <UpdateSell user={user}/> : <Navigate to='/login'/>} />
+          <Route exact path='/profile' element={user ? <Profile user={user}/> : <Navigate to='/login'/>} />
+          <Route exact path='/posts' element={user ? <Post user={user}/> : <Navigate to='/login'/>} />
         </Routes>
       </BrowserRouter>
     </div>

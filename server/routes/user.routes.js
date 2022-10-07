@@ -9,4 +9,5 @@ module.exports = (app) => {
     app.get("/api/users/getloggedinuser", authenticate, UserController.getLoggedInUser);
     app.get("/api/logout", UserController.logout)
     app.get("/api/getUsername/:id", UserController.getUsername)
+    app.put('/api/user/edit/:id', UserController.updateUser);
 }

@@ -14,7 +14,6 @@ const SellForm = (props) => {
 
     const onSubmitHandler = e => {
         e.preventDefault();
-        console.log(user);
         onSubmitProp({ title, description, price, image, user });
         navigate('/shop');
     }

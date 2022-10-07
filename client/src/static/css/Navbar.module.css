@@ -42,3 +42,9 @@
     width: 32px;
     padding-right: 4px;
 }
+
+.avatar {
+    height: 48px;
+    margin-right: 8px;
+    border-radius: 50%;
+}

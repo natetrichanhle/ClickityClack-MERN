@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import FileBase64 from 'react-file-base64';
 
 import Navbar from '../components/Navbar'
 import styles from '../static/css/LoginSignup.module.css'
@@ -11,6 +12,7 @@ const SignupForm = ({ setUser, user }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [avatar, setAvatar] = useState('');
 
     const registerUser = (event) => {
         event.preventDefault();
@@ -19,6 +21,7 @@ const SignupForm = ({ setUser, user }) => {
                 username,
                 email,
                 password,
+                avatar,
                 confirmPassword
             }),
             {
@@ -37,11 +40,18 @@ const SignupForm = ({ setUser, user }) => {
 
     return (
         <div>
-            <Navbar user={user}/>
+            <Navbar user={user} />
             <div className={styles.container}>
                 <div className={styles.infoContainer}>
                     <h1 className={styles.formHeader}>Sign Up!</h1>
                     <form onSubmit={registerUser} className={styles.form}>
+                        <div className={styles.formInput}>
+                            <label>Profile Picture</label>
+                            <FileBase64
+                                multiple={false}
+                                value={avatar}
+                                onDone={({ base64 }) => setAvatar(base64)} />
+                        </div>
                         <input
                             type="text"
                             value={username}
