@@ -12,7 +12,7 @@ const Profile = ({user}) => {
             <div className={styles.container}>
                 <ProfileSideNav />
                 <div className={styles.profileContainer}>
-                    <h1>Profile</h1>
+                    <h1 className={styles.header}>Profile</h1>
                 </div>
             </div>
         </div>

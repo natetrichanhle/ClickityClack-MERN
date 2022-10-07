@@ -38,7 +38,7 @@ const ViewOneSell = ({ user }) => {
                     <h1>{product?.description}</h1>
                     <h1>${product?.price}</h1>
                     {user._id === product.user ? (
-                        <div className={styles.btns}>
+                        <div className={styles.btns }>
                             <Link to={`/sell/edit/${product?._id}`} className={styles.link}>Edit</Link>
                             <DeleteButton
                                 productId={product._id}

@@ -24,8 +24,6 @@ const Navbar = ({ user }) => {
             .catch(err => console.log(err))
     }
 
-    console.log(user)
-
     return (
         <div className={styles.container}>
             <Link to="/">
