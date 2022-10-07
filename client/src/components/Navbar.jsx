@@ -3,7 +3,14 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom'
 
 import styles from '../static/css/Navbar.module.css'
+
 import logo from "../static/images/Logo.png"
+import home from '../static/images/home.png'
+import shop from '../static/images/shop.png'
+import sell from '../static/images/sell.png'
+import avatar from '../static/images/avatar.png'
+import login from '../static/images/login.png'
+import logoutIcon from '../static/images/logout.png'
 
 const Navbar = ({user}) => {
     const navigate = useNavigate();
@@ -26,17 +33,35 @@ const Navbar = ({user}) => {
             <div>
                 <ul className={styles.links}>
                     {user ? (
-                        <h1 className={styles.link}>{user.username}</h1>
+                        <Link className={styles.link} to='/profile'>
+                            <img src={avatar} alt="avatar" className={styles.icons}/>
+                            {user.username}
+                        </Link>
                     ) : (<></>)}
-                    <Link className={styles.link} to='/'>Home</Link>
-                    <Link className={styles.link} to='/shop'>Shop</Link>
+                    <Link className={styles.link} to='/'>
+                        <img src={home} alt="home" className={styles.icons}/>
+                        Home
+                    </Link>
+                    <Link className={styles.link} to='/shop'>
+                        <img src={shop} alt="shop" className={styles.icons}/>
+                        Shop
+                    </Link>
                     {user ? (
                         <>
-                            <Link className={styles.link} to='/sell'>Sell</Link>
-                            <Link className={styles.link} onClick={logout}>Logout</Link>
+                            <Link className={styles.link} to='/sell'>
+                                <img src={sell} alt="sell" className={styles.icons}/>
+                                Sell
+                            </Link>
+                            <Link className={styles.link} onClick={logout}>
+                                <img src={logoutIcon} alt="logout" className={styles.icons}/>
+                                Logout
+                            </Link>
                         </>
                     ): (
-                        <Link className={styles.link} to='/login'>Login / Signup</Link>
+                        <Link className={styles.link} to='/login'>
+                            <img src={login} alt="login" className={styles.icons}/>
+                            Login / Signup
+                        </Link>
                     )}
                 </ul>
             </div>

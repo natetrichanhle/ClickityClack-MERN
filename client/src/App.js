@@ -15,6 +15,7 @@ import Sell from './views/Sell'
 import Shop from './views/Shop';
 import UpdateSell from './views/UpdateSell';
 import ViewOneSell from './views/ViewOneSell';
+import Profile from './views/Profile';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -23,7 +24,6 @@ function App() {
     axios.get("http://localhost:8000/api/users/getloggedinuser", {withCredentials: true})
         .then(res => {
           setUser(res.data);
-          console.log(res.data);
         })
         .catch(err => console.log(err))
   }, [])
@@ -39,6 +39,7 @@ function App() {
           <Route exact path='/sell/:id' element={<ViewOneSell user={user}/>} />
           <Route exact path='/sell/edit/:id' element={user ? <UpdateSell user={user}/> : <Navigate to='/login'/>} />
           <Route exact path='/shop' element={<Shop user={user}/>} />
+          <Route exact path='/profile' element={<Profile user={user}/>} />
         </Routes>
       </BrowserRouter>
     </div>

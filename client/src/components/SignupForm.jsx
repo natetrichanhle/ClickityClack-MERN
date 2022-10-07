@@ -39,47 +39,49 @@ const SignupForm = ({ setUser, user }) => {
         <div>
             <Navbar user={user}/>
             <div className={styles.container}>
-                <h1 className={styles.formHeader}>Sign Up!</h1>
-                <form onSubmit={registerUser} className={styles.form}>
-                    <input
-                        type="text"
-                        value={username}
-                        name="username"
-                        placeholder="Username"
-                        onChange={(e) => { setUsername(e.target.value) }}
-                        className={styles.formInput}
-                    />
-                    <input
-                        type="email"
-                        value={email}
-                        name="email"
-                        placeholder="Email"
-                        onChange={(e) => { setEmail(e.target.value) }}
-                        className={styles.formInput}
-                    />
-                    <input
-                        type="password"
-                        value={password}
-                        name="password"
-                        placeholder="Password"
-                        onChange={(e) => { setPassword(e.target.value) }}
-                        className={styles.formInput}
-                    />
-                    <input
-                        type="password"
-                        value={confirmPassword}
-                        name=""
-                        placeholder="Confirm Password"
-                        onChange={(e) => { setConfirmPassword(e.target.value) }}
-                        className={styles.formInput}
-                    />
-                    <input
-                        type="submit" placeholder="Log In" className={styles.submit}
-                    />
-                </form>
-                <Link to="/login" className={styles.route}>
-                    Have an account already? <span className={styles.blue}>Log in here.</span>
-                </Link>
+                <div className={styles.infoContainer}>
+                    <h1 className={styles.formHeader}>Sign Up!</h1>
+                    <form onSubmit={registerUser} className={styles.form}>
+                        <input
+                            type="text"
+                            value={username}
+                            name="username"
+                            placeholder="Username"
+                            onChange={(e) => { setUsername(e.target.value) }}
+                            className={styles.formInput}
+                        />
+                        <input
+                            type="email"
+                            value={email}
+                            name="email"
+                            placeholder="Email"
+                            onChange={(e) => { setEmail(e.target.value) }}
+                            className={styles.formInput}
+                        />
+                        <input
+                            type="password"
+                            value={password}
+                            name="password"
+                            placeholder="Password"
+                            onChange={(e) => { setPassword(e.target.value) }}
+                            className={styles.formInput}
+                        />
+                        <input
+                            type="password"
+                            value={confirmPassword}
+                            name=""
+                            placeholder="Confirm Password"
+                            onChange={(e) => { setConfirmPassword(e.target.value) }}
+                            className={styles.formInput}
+                        />
+                        <input
+                            type="submit" placeholder="Log In" className={styles.submit}
+                        />
+                    </form>
+                    <Link to="/login" className={styles.route}>
+                        Have an account already? <span className={styles.blue}>Log in here.</span>
+                    </Link>
+                </div>
             </div>
         </div>
     )

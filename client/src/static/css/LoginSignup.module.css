@@ -12,6 +12,20 @@
     height: calc(100vh - 129px);
 }
 
+.infoContainer {
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 600px;
+    width: 400px;
+    border-radius: 24px;
+    box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
+    -webkit-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
+    -moz-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
+}
+
 .formHeader {
     color: #393433;
     text-transform: uppercase;

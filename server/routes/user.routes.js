@@ -8,4 +8,5 @@ module.exports = (app) => {
     app.post("/api/login", UserController.login);
     app.get("/api/users/getloggedinuser", authenticate, UserController.getLoggedInUser);
     app.get("/api/logout", UserController.logout)
+    app.get("/api/getUsername/:id", UserController.getUsername)
 }

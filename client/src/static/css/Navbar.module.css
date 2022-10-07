@@ -30,8 +30,15 @@
     text-shadow: 3px 3px 3px gray;
     opacity: 1;
     transition: 0.5s ease;
+    display: flex;
+    align-items: center;
 }
 
 .link:hover {
     opacity: 0.6;
+}
+
+.icons  {
+    width: 32px;
+    padding-right: 4px;
 }

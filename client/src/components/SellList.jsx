@@ -14,33 +14,15 @@ const SellList = ({ user }) => {
             .catch(err => console.error(err))
     }, [])
 
-    const removeFromDom = productId => {
-        setProducts(products.filter(product => product._id !== productId))
-    }
-
     return (
         <div className={styles.mainContainer}>
             {products.map((product, index) => {
                 return (
-                    <div className={styles.container} key={index}>
-                        <img src={product.image} alt="image" className={styles.img} />
-                        <Link className={styles.link} to={'/sell/' + product._id}><h3 className={`${styles.product} ${styles.title}`}>{product.title}</h3></Link>
-                        <h3 className={styles.product}>{product.description}</h3>
+                    <Link className={`${styles.container} ${styles.link}`} key={index} to={'/sell/' + product._id}>
+                        <img src={product?.image} alt="image" className={styles.img} />
+                        <h3 className={`${styles.product} ${styles.title}`}>{product.title}</h3>
                         <h3 className={styles.product}>${product.price}</h3>
-                        {user ? (
-                            <div className={styles.btns}>
-                                <Link
-                                    to={'/sell/edit/' + product._id}
-                                    className={styles.linkBtn}
-                                >Edit
-                                </Link>
-                                <DeleteButton
-                                    productId={product._id}
-                                    successCallback={() => removeFromDom(product._id)}
-                                />
-                            </div>
-                        ) : (<></>)}
-                    </div>
+                    </Link>
                 )
             })}
         </div>

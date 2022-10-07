@@ -3,3 +3,50 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
+
+.viewOneContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #393433;
+    height: calc(100vh - 129px);
+}
+
+.viewOneContainer h1 {
+    padding: 8px;
+}
+
+.img {
+    height: 50%;
+    width: 50%;
+    border-radius: 24px;
+    object-fit: cover;
+    box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
+    -webkit-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
+    -moz-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
+}
+
+.link {
+    background-color: lightgray;
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-size: large;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    color: #393433;
+    text-shadow: 3px 3px 3px gray;
+    transition: 0.5s ease;
+}
+
+.link:hover {
+    background-color: rgb(171, 171, 171);
+}
+
+.btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

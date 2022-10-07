@@ -35,32 +35,34 @@ const LoginForm = ({ setUser, user }) => {
         <div>
             <Navbar user={user}/>
             <div className={styles.container}>
-                <h1 className={styles.formHeader}>Log In!</h1>
-                <form onSubmit={loginUser} className={styles.form}>
-                    <input
-                        type="text"
-                        value={email}
-                        name="email"
-                        placeholder="Email"
-                        onChange={(e) => { setEmail(e.target.value) }}
-                        className={styles.formInput}
-                    />
-                    <input
-                        type="password"
-                        value={password}
-                        name="password"
-                        placeholder="Password"
-                        onChange={(e) => { setPassword(e.target.value) }}
-                        className={styles.formInput}
-                    />
-                    <input
-                        type="submit" placeholder="Log In" className={styles.submit}
-                    />
-                </form>
-                <Link to="/signup" className={styles.route}>
-                    Don't have an account? Sign up here.
-                </Link>
-            </div>
+                <div className={styles.infoContainer}>
+                    <h1 className={styles.formHeader}>Log In!</h1>
+                    <form onSubmit={loginUser} className={styles.form}>
+                        <input
+                            type="text"
+                            value={email}
+                            name="email"
+                            placeholder="Email"
+                            onChange={(e) => { setEmail(e.target.value) }}
+                            className={styles.formInput}
+                        />
+                        <input
+                            type="password"
+                            value={password}
+                            name="password"
+                            placeholder="Password"
+                            onChange={(e) => { setPassword(e.target.value) }}
+                            className={styles.formInput}
+                        />
+                        <input
+                            type="submit" placeholder="Log In" className={styles.submit}
+                        />
+                    </form>
+                    <Link to="/signup" className={styles.route}>
+                        Don't have an account? Sign up here.
+                    </Link>
+                                </div>
+                </div>
         </div>
     )
 }

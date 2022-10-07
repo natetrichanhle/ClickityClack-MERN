@@ -44,12 +44,18 @@ class UserController {
         User.findById(decodedJWT.payload._id)
             .then(user=> res.json(user))
             .catch(err=> res.json(err))
-
     }
 
     logout(req, res)  {
         res.clearCookie('usertoken');
         res.sendStatus(200);
+    }
+
+    getUsername(req, res) {
+        console.log(req.params)
+        User.findById({ _id: req.params.id})
+            .then(user => res.json(user.username))
+            .catch(err => res.json(err))
     }
 }
 

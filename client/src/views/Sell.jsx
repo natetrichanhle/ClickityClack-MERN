@@ -37,6 +37,7 @@ const Sell = ({user}) => {
                     initialDescription=''
                     initialPrice=''
                     initialImage=''
+                    user={user._id}
                 />
             </div>
         </div>

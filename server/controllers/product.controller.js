@@ -7,12 +7,14 @@ module.exports.getProduct = (request, response) => {
 }
 
 module.exports.createProduct = (request, response) => {
-    const { title, description, price, image } = request.body;
+    const { title, description, price, image, user } = request.body;
+    console.log(request.body);
     Product.create({
         title,
         description,
         price,
-        image
+        image,
+        user
     })
         .then(product => response.json(product))
         .catch(err => response.status(400).json(err))

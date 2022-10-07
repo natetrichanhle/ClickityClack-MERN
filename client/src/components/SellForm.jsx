@@ -6,7 +6,7 @@ import FileBase64 from 'react-file-base64';
 
 const SellForm = (props) => {
     const navigate = useNavigate();
-    const { initialTitle, initialDescription, initialPrice, initialImage, onSubmitProp, errors } = props;
+    const { initialTitle, initialDescription, initialPrice, initialImage, onSubmitProp, errors, user } = props;
     const [title, setTitle] = useState(initialTitle);
     const [description, setDescription] = useState(initialDescription);
     const [price, setPrice] = useState(initialPrice);
@@ -14,7 +14,8 @@ const SellForm = (props) => {
 
     const onSubmitHandler = e => {
         e.preventDefault();
-        onSubmitProp({ title, description, price, image });
+        console.log(user);
+        onSubmitProp({ title, description, price, image, user });
         navigate('/shop');
     }
 
