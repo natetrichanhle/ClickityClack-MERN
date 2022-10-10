@@ -30,7 +30,7 @@
 .link {
     background-color: lightgray;
     padding: 8px 16px;
-    border-radius: 16px;
+    border-radius: 12px;
     font-size: large;
     cursor: pointer;
     font-weight: bold;
@@ -48,5 +48,4 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
 }
