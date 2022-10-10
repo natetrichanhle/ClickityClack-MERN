@@ -11,3 +11,33 @@
 .header {
     margin: 24px 0px 0px 24px;
 }
+
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.userInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 600px;
+    width: 800px;
+    background-color: lightgray;
+    box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
+    -webkit-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
+    -moz-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
+}
+
+.img {
+    height: 300px;
+    margin-right: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

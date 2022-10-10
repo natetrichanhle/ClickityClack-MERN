@@ -11,8 +11,15 @@ const Profile = ({user}) => {
             <Navbar user={user}/>
             <div className={styles.container}>
                 <ProfileSideNav />
+                <h1 className={styles.header}>Profile</h1>
                 <div className={styles.profileContainer}>
-                    <h1 className={styles.header}>Profile</h1>
+                    <div className={styles.userInfo}>
+                        <div className={styles.info}>
+                            <img src={user.avatar} alt="avatar" className={styles.img}/>
+                            <h1>Username: {user.username}</h1>
+                            <h1>Email: {user.email}</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
