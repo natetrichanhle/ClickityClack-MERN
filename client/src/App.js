@@ -8,7 +8,6 @@ import {
 import axios from 'axios'
 
 import LoginForm from './components/LoginForm';
-import SignupForm from './components/SignupForm';
 
 import Home from './views/Home'
 import Sell from './views/Sell'
@@ -17,6 +16,8 @@ import UpdateSell from './views/UpdateSell';
 import ViewOneSell from './views/ViewOneSell';
 import Profile from './views/Profile';
 import Post from './views/Posts';
+import Signup from './views/Signup';
+import UpdateUser from './views/UpdateUser';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -33,7 +34,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route exact path='/signup' element={<SignupForm user={user} setUser={setUser}/>}/>
+          <Route exact path='/signup' element={<Signup user={user} setUser={setUser}/>}/>
           <Route exact path='/login' element={<LoginForm user={user} setUser={setUser}/>}/>
           <Route exact path='/' element={<Home user={user}/>}/>
           <Route exact path='/shop' element={<Shop user={user}/>} />
@@ -42,6 +43,7 @@ function App() {
           <Route exact path='/sell/edit/:id' element={user ? <UpdateSell user={user}/> : <Navigate to='/login'/>} />
           <Route exact path='/profile' element={user ? <Profile user={user}/> : <Navigate to='/login'/>} />
           <Route exact path='/posts' element={user ? <Post user={user}/> : <Navigate to='/login'/>} />
+          <Route exact path='/user/edit/:id' element={<UpdateUser user={user} setUser={setUser}/>}/>
         </Routes>
       </BrowserRouter>
     </div>

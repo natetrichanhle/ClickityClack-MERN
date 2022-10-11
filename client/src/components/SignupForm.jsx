@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import FileBase64 from 'react-file-base64';
 
-import Navbar from '../components/Navbar'
 import styles from '../static/css/LoginSignup.module.css'
 
-const SignupForm = ({ setUser, user }) => {
+const SignupForm = ({ registerUser, page, user }) => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -14,37 +13,29 @@ const SignupForm = ({ setUser, user }) => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [avatar, setAvatar] = useState('');
 
-    const registerUser = (event) => {
-        event.preventDefault();
-        axios.post("http://localhost:8000/api/register",
-            JSON.stringify({
-                username,
-                email,
-                password,
-                avatar,
-                confirmPassword
-            }),
-            {
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                withCredentials: true,
-            })
-            .then(res => {
-                setUser(res.data.user)
-                navigate("/login");
-                console.log(res)
-            })
-            .catch(err => console.log(err))
+    useEffect(() => {
+        if (page === 'Update User!'){
+            setUsername(user.username) 
+            setEmail(user.email) 
+            setPassword(user.password) 
+            setAvatar(user.avatar)
+            } 
+        else {
+            return
+        }
+    }, [])
+
+    const onSubmitHandler = e => {
+        e.preventDefault();
+        registerUser({ username, email, password, avatar, confirmPassword });
     }
 
     return (
         <div>
-            <Navbar user={user} />
             <div className={styles.container}>
                 <div className={styles.infoContainer}>
-                    <h1 className={styles.formHeader}>Sign Up!</h1>
-                    <form onSubmit={registerUser} className={styles.form}>
+                    <h1 className={styles.formHeader}>{page}</h1>
+                    <form onSubmit={onSubmitHandler} className={styles.form}>
                         <div className={styles.formInput}>
                             <label>Profile Picture</label>
                             <FileBase64
@@ -68,22 +59,26 @@ const SignupForm = ({ setUser, user }) => {
                             onChange={(e) => { setEmail(e.target.value) }}
                             className={styles.formInput}
                         />
-                        <input
-                            type="password"
-                            value={password}
-                            name="password"
-                            placeholder="Password"
-                            onChange={(e) => { setPassword(e.target.value) }}
-                            className={styles.formInput}
-                        />
-                        <input
-                            type="password"
-                            value={confirmPassword}
-                            name=""
-                            placeholder="Confirm Password"
-                            onChange={(e) => { setConfirmPassword(e.target.value) }}
-                            className={styles.formInput}
-                        />
+                        {page === 'Sign Up!' && 
+                        <>
+                            <input
+                                type="password"
+                                value={password}
+                                name="password"
+                                placeholder="Password"
+                                onChange={(e) => { setPassword(e.target.value) }}
+                                className={styles.formInput}
+                            />
+                            <input
+                                type="password"
+                                value={confirmPassword}
+                                name=""
+                                placeholder="Confirm Password"
+                                onChange={(e) => { setConfirmPassword(e.target.value) }}
+                                className={styles.formInput}
+                            />
+                        </>
+                        }
                         <input
                             type="submit" placeholder="Log In" className={styles.submit}
                         />
