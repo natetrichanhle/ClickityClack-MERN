@@ -18,6 +18,7 @@ import Profile from './views/Profile';
 import Post from './views/Posts';
 import Signup from './views/Signup';
 import UpdateUser from './views/UpdateUser';
+import Cart from './views/Cart';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -39,6 +40,7 @@ function App() {
           <Route exact path='/' element={<Home user={user}/>}/>
           <Route exact path='/shop' element={<Shop user={user}/>} />
           <Route exact path='/sell' element={user? <Sell user={user}/> : <Navigate to='/login'/>} />
+          <Route exact path='/cart' element={user? <Cart user={user}/> : <Navigate to='/login'/>} />
           <Route exact path='/sell/:id' element={user ? <ViewOneSell user={user}/> : <Navigate to='/login'/>} />
           <Route exact path='/sell/edit/:id' element={user ? <UpdateSell user={user}/> : <Navigate to='/login'/>} />
           <Route exact path='/profile' element={user ? <Profile user={user}/> : <Navigate to='/login'/>} />

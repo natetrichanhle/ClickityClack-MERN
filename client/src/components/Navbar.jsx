@@ -8,6 +8,7 @@ import logo from "../static/images/Logo.png"
 import home from '../static/images/home.png'
 import shop from '../static/images/shop.png'
 import sell from '../static/images/sell.png'
+import cart from '../static/images/cart.png'
 import login from '../static/images/login.png'
 import logoutIcon from '../static/images/logout.png'
 
@@ -50,6 +51,10 @@ const Navbar = ({ user }) => {
                             <Link className={styles.link} to='/sell'>
                                 <img src={sell} alt="sell" className={styles.icons} />
                                 Sell
+                            </Link>
+                            <Link className={styles.link} to='/cart'>
+                                <img src={cart} alt="cart" className={styles.icons} />
+                                Cart
                             </Link>
                             <Link className={styles.link} onClick={logout}>
                                 <img src={logoutIcon} alt="logout" className={styles.icons} />
