@@ -14,12 +14,12 @@ const SignupForm = ({ registerUser, page, user }) => {
     const [avatar, setAvatar] = useState('');
 
     useEffect(() => {
-        if (page === 'Update User!'){
-            setUsername(user.username) 
-            setEmail(user.email) 
-            setPassword(user.password) 
+        if (page === 'Update User!') {
+            setUsername(user.username)
+            setEmail(user.email)
+            setPassword(user.password)
             setAvatar(user.avatar)
-            } 
+        }
         else {
             return
         }
@@ -27,7 +27,7 @@ const SignupForm = ({ registerUser, page, user }) => {
 
     const onSubmitHandler = e => {
         e.preventDefault();
-        registerUser( username, email, avatar, password, confirmPassword );
+        registerUser(username, email, avatar, password, confirmPassword);
     }
 
     return (
@@ -59,33 +59,37 @@ const SignupForm = ({ registerUser, page, user }) => {
                             onChange={(e) => { setEmail(e.target.value) }}
                             className={styles.formInput}
                         />
-                        {page === 'Sign Up!' && 
-                        <>
-                            <input
-                                type="password"
-                                value={password}
-                                name="password"
-                                placeholder="Password"
-                                onChange={(e) => { setPassword(e.target.value) }}
-                                className={styles.formInput}
-                            />
-                            <input
-                                type="password"
-                                value={confirmPassword}
-                                name=""
-                                placeholder="Confirm Password"
-                                onChange={(e) => { setConfirmPassword(e.target.value) }}
-                                className={styles.formInput}
-                            />
-                        </>
+                        {page === 'Sign Up!' &&
+                            <>
+                                <input
+                                    type="password"
+                                    value={password}
+                                    name="password"
+                                    placeholder="Password"
+                                    onChange={(e) => { setPassword(e.target.value) }}
+                                    className={styles.formInput}
+                                />
+                                <input
+                                    type="password"
+                                    value={confirmPassword}
+                                    name=""
+                                    placeholder="Confirm Password"
+                                    onChange={(e) => { setConfirmPassword(e.target.value) }}
+                                    className={styles.formInput}
+                                />
+                            </>
                         }
                         <input
                             type="submit" placeholder="Log In" className={styles.submit}
                         />
                     </form>
-                    <Link to="/login" className={styles.route}>
-                        Have an account already? <span className={styles.blue}>Log in here.</span>
-                    </Link>
+                    {page === 'Sign Up!' &&
+                        <>
+                            <Link to="/login" className={styles.route}>
+                                Have an account already? <span className={styles.blue}>Log in here.</span>
+                            </Link>
+                        </>
+                    }
                 </div>
             </div>
         </div>
