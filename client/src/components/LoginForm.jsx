@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
@@ -31,9 +31,15 @@ const LoginForm = ({ setUser, user }) => {
             .catch(err => console.log(err))
     }
 
+    useEffect(() => {
+        console.log('here') 
+        user !== '' && navigate('/')
+    }, [])
+
+
     return (
         <div>
-            <Navbar user={user}/>
+            <Navbar user={user} setUser={setUser}/>
             <div className={styles.container}>
                 <div className={styles.infoContainer}>
                     <h1 className={styles.formHeader}>Log In!</h1>
@@ -61,8 +67,8 @@ const LoginForm = ({ setUser, user }) => {
                     <Link to="/signup" className={styles.route}>
                         Don't have an account? Sign up here.
                     </Link>
-                                </div>
                 </div>
+            </div>
         </div>
     )
 }

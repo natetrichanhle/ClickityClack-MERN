@@ -27,7 +27,7 @@ const SignupForm = ({ registerUser, page, user }) => {
 
     const onSubmitHandler = e => {
         e.preventDefault();
-        registerUser({ username, email, password, avatar, confirmPassword });
+        registerUser( username, email, avatar, password, confirmPassword );
     }
 
     return (

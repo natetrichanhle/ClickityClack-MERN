@@ -7,7 +7,7 @@ import styles from '../static/css/Posts.module.css'
 import Navbar from '../components/Navbar'
 import ProfileSideNav from '../components/ProfileSideNav'
 
-const Posts = ({user}) => {
+const Posts = ({user, setUser}) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const Posts = ({user}) => {
 
     return (
         <div>
-            <Navbar user={user} />
+            <Navbar user={user} setUser={setUser}/>
             <div className={styles.container}>
                 <ProfileSideNav />
                 <div className={styles.profileContainer}>

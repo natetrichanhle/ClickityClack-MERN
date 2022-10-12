@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar'
 import SellForm from '../components/SellForm'
 import styles from '../static/css/Sell.module.css'
 
-const Sell = ({user}) => {
+const Sell = ({user, setUser}) => {
     const [products, setProducts] = useState([]);
     const [errors, setErrors] = useState([]);
 
@@ -27,7 +27,7 @@ const Sell = ({user}) => {
 
     return (
         <div>
-            <Navbar user={user}/>
+            <Navbar user={user} setUser={setUser}/>
             <h1 className={styles.header}>POST AN ITEM TO SELL</h1>
             <div className={styles.form}>
                 <SellForm

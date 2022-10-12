@@ -33,7 +33,7 @@ const Signup = ({user, setUser}) => {
 
     return (
         <div>
-            <Navbar user={user} />
+            <Navbar user={user} setUser={setUser}/>
             <SignupForm 
                 user={user}
                 registerUser={registerUser}

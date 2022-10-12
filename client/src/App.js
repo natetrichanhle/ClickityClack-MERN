@@ -21,7 +21,8 @@ import UpdateUser from './views/UpdateUser';
 import Cart from './views/Cart';
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState('');
+  const [loaded, setLoaded] = useState(false);
 
   useEffect (() => {
     axios.get("http://localhost:8000/api/users/getloggedinuser", {withCredentials: true})
@@ -29,25 +30,26 @@ function App() {
           setUser(res.data);
         })
         .catch(err => console.log(err))
-  }, [])
+        setLoaded(true);
+  }, [user])
 
   return (
     <div>
-      <BrowserRouter>
+      {loaded && <BrowserRouter>
         <Routes>
           <Route exact path='/signup' element={<Signup user={user} setUser={setUser}/>}/>
           <Route exact path='/login' element={<LoginForm user={user} setUser={setUser}/>}/>
-          <Route exact path='/' element={<Home user={user}/>}/>
-          <Route exact path='/shop' element={<Shop user={user}/>} />
-          <Route exact path='/sell' element={user? <Sell user={user}/> : <Navigate to='/login'/>} />
-          <Route exact path='/cart' element={user? <Cart user={user}/> : <Navigate to='/login'/>} />
-          <Route exact path='/sell/:id' element={user ? <ViewOneSell user={user}/> : <Navigate to='/login'/>} />
-          <Route exact path='/sell/edit/:id' element={user ? <UpdateSell user={user}/> : <Navigate to='/login'/>} />
-          <Route exact path='/profile' element={user ? <Profile user={user}/> : <Navigate to='/login'/>} />
-          <Route exact path='/posts' element={user ? <Post user={user}/> : <Navigate to='/login'/>} />
-          <Route exact path='/user/edit/:id' element={<UpdateUser user={user} setUser={setUser}/>}/>
+          <Route exact path='/' element={<Home user={user} setUser={setUser}/>}/>
+          <Route exact path='/shop' element={<Shop user={user} setUser={setUser}/>} />
+          <Route exact path='/sell' element={user? <Sell user={user} setUser={setUser}/> : <Navigate to='/login'/>} />
+          <Route exact path='/cart' element={user? <Cart user={user} setUser={setUser}/> : <Navigate to='/login'/>} />
+          <Route exact path='/sell/:id' element={user ? <ViewOneSell user={user} setUser={setUser}/> : <Navigate to='/login'/>} />
+          <Route exact path='/sell/edit/:id' element={user ? <UpdateSell user={user} setUser={setUser}/> : <Navigate to='/login'/>} />
+          <Route exact path='/profile' element={user ? <Profile user={user} setUser={setUser}/> : <Navigate to='/login'/>} />
+          <Route exact path='/posts' element={user ? <Post user={user} setUser={setUser}/> : <Navigate to='/login'/>} />
+          <Route exact path='/user/edit/:id' element={user ? <UpdateUser user={user} setUser={setUser}/> : <Navigate to='/login'/>}/>
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter>}
     </div>
   );
 }

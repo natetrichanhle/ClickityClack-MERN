@@ -5,11 +5,11 @@ import Navbar from '../components/Navbar'
 import ProfileSideNav from '../components/ProfileSideNav'
 import { Link } from 'react-router-dom'
 
-const Profile = ({user}) => {
+const Profile = ({user, setUser}) => {
 
     return (
         <div>
-            <Navbar user={user}/>
+            <Navbar user={user} setUser={setUser}/>
             <div className={styles.container}>
                 <ProfileSideNav />
                 <h1 className={styles.header}>Profile</h1>

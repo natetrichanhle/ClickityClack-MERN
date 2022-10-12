@@ -9,7 +9,7 @@ const UpdateUser = ({user, setUser}) => {
     const navigate = useNavigate();
     const { id } = useParams()
 
-    const updateUser = (username, email, password, avatar, confirmPassword) => {
+    const updateUser = (username, email, avatar) => {
         axios.put('http://localhost:8000/api/user/edit/' + id, JSON.stringify({
             username,
             email,
@@ -31,7 +31,7 @@ const UpdateUser = ({user, setUser}) => {
 
     return (
         <div>
-            <Navbar user={user} />
+            <Navbar user={user} setUser={setUser}/>
             <SignupForm 
                 user={user}
                 registerUser={updateUser}

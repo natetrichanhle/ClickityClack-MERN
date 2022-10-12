@@ -12,15 +12,15 @@ import cart from '../static/images/cart.png'
 import login from '../static/images/login.png'
 import logoutIcon from '../static/images/logout.png'
 
-const Navbar = ({ user }) => {
+const Navbar = ({ user, setUser }) => {
     const navigate = useNavigate();
 
     const logout = () => {
         axios.get("http://localhost:8000/api/logout", { withCredentials: true })
             .then(res => {
-                navigate("/login");
-                window.location.reload()
                 console.log(res.data)
+                setUser('');    
+                navigate("/login");
             })
             .catch(err => console.log(err))
     }

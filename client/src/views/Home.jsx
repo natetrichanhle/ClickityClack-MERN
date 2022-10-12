@@ -4,10 +4,10 @@ import Navbar from '../components/Navbar'
 import styles from '../static/css/Home.module.css'
 import home1 from '../static/images/home1.jpg'
 
-const Home = ({user}) => {
+const Home = ({user, setUser}) => {
     return (
         <div>
-            <Navbar user={user}/>
+            <Navbar user={user} setUser={setUser}/>
             <div className={styles.container}>
                 <img src={home1} alt="home1" className={styles.homeImg}/>
             </div>

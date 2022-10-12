@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar'
 import DeleteButton from '../components/DeleteButton'
 import styles from '../static/css/ViewOneSell.module.css'
 
-const ViewOneSell = ({ user }) => {
+const ViewOneSell = ({ user, setUser }) => {
     const { id } = useParams()
     const [product, setProduct] = useState({})
     const [loaded, setLoaded] = useState(false)
@@ -29,7 +29,7 @@ const ViewOneSell = ({ user }) => {
 
     return (
         <div>
-            <Navbar user={user} />
+            <Navbar user={user} setUser={setUser}/>
             {loaded &&
                 <div className={styles.viewOneContainer}>
                     <img src={product?.image} alt="image" className={styles.img} />

@@ -7,7 +7,7 @@ import DeleteButton from '../components/DeleteButton'
 import Navbar from '../components/Navbar'
 import styles from '../static/css/UpdateSell.module.css'
 
-const UpdateSell = ({user}) => {
+const UpdateSell = ({user, setUser}) => {
     const navigate = useNavigate();
     const { id } = useParams();
     const [product, setProduct] = useState();
@@ -29,7 +29,7 @@ const UpdateSell = ({user}) => {
 
     return (
         <div>
-            <Navbar user={user}/>
+            <Navbar user={user} setUser={setUser}/>
             <h1 className={styles.header}>UPDATE YOUR PRODUCT</h1>
             {loaded && (
                 <>
