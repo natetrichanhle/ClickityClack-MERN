@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    display: flex;
+}
+
+.orderContainer {
+    display: flex;
+    width: 100%;
+}
+
+.header {
+    margin: 24px 0px 0px 24px;
+}

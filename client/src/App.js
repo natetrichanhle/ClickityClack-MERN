@@ -19,6 +19,7 @@ import Post from './views/Posts';
 import Signup from './views/Signup';
 import UpdateUser from './views/UpdateUser';
 import Cart from './views/Cart';
+import Orders from './views/Orders';
 
 function App() {
   const [user, setUser] = useState('');
@@ -47,6 +48,7 @@ function App() {
           <Route exact path='/sell/edit/:id' element={user ? <UpdateSell user={user} setUser={setUser}/> : <Navigate to='/login'/>} />
           <Route exact path='/profile' element={user ? <Profile user={user} setUser={setUser}/> : <Navigate to='/login'/>} />
           <Route exact path='/posts' element={user ? <Post user={user} setUser={setUser}/> : <Navigate to='/login'/>} />
+          <Route exact path='/orders' element={user ? <Orders user={user} setUser={setUser}/> : <Navigate to='/login'/>} />
           <Route exact path='/user/edit/:id' element={user ? <UpdateUser user={user} setUser={setUser}/> : <Navigate to='/login'/>}/>
         </Routes>
       </BrowserRouter>}

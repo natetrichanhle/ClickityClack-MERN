@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import styles from '../static/css/ProfileSideNav.module.css'
 import post from '../static/images/post.png'
 import avatar from '../static/images/avatar.png'
+import orders from '../static/images/orders.png'
 
 const ProfileSideNav = () => {
     return (
@@ -16,6 +17,10 @@ const ProfileSideNav = () => {
                 <Link to="/posts" className={styles.link}>
                     <img src={post} alt="post" className={styles.icons}/>
                     Posts
+                </Link>
+                <Link to="/orders" className={styles.link}>
+                    <img src={orders} alt="orders" className={styles.icons}/>
+                    Orders
                 </Link>
             </ul>
         </div>
