@@ -10,6 +10,7 @@ import shop from '../static/images/shop.png'
 import sell from '../static/images/sell.png'
 import cart from '../static/images/cart.png'
 import login from '../static/images/login.png'
+import chat from '../static/images/chat.png'
 import logoutIcon from '../static/images/logout.png'
 
 const Navbar = ({ user, setUser }) => {
@@ -51,6 +52,10 @@ const Navbar = ({ user, setUser }) => {
                             <Link className={styles.link} to='/sell'>
                                 <img src={sell} alt="sell" className={styles.icons} />
                                 Sell
+                            </Link>
+                            <Link className={styles.link} to='/chat'>
+                                <img src={chat} alt="chat" className={styles.icons} />
+                                Chat
                             </Link>
                             <Link className={styles.link} to='/cart'>
                                 <img src={cart} alt="cart" className={styles.icons} />
