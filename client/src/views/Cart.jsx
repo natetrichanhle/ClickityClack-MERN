@@ -64,7 +64,7 @@ const Cart = ({ user, setUser }) => {
                                     <span>Subtotal</span>
                                     <span className={styles.amount}>${cart.cartTotalAmount}</span>
                                 </div>
-                                <p>Taxes and Shipping Calculated at Checkout</p>
+                                <p>Taxes and shipping calculated at checkout</p>
                                 <button>Checkout</button>
                                 <div className={styles.continueShopping}>
                                     <Link to="/shop">
