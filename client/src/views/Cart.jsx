@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart } from "../slices/cartSlice";
 
 import Navbar from '../components/Navbar'
 import styles from '../static/css/Cart.module.css'
@@ -8,6 +9,11 @@ import back from '../static/images/back.png'
 
 const Cart = ({ user, setUser }) => {
     const cart = useSelector((state) => state.cart);
+    const dispatch = useDispatch()
+
+    const handleRemoveFromCart = (cartItem) => {
+        dispatch(removeFromCart(cartItem))
+    }
 
     return (
         <div>
@@ -34,13 +40,13 @@ const Cart = ({ user, setUser }) => {
                         </div>
                         <div className={styles.cartItems}>
                             {cart.cartItems?.map(cartItem => (
-                                <div className={styles.cartItem} key={cartItem.id}>
+                                <div className={styles.cartItem} key={cartItem._id}>
                                     <div className={styles.cartProduct}>
                                         <img src={cartItem.image} alt={cartItem.name} />
                                         <div>
                                             <h3>{cartItem.title}</h3>
                                             <p>{cartItem.description}</p>
-                                            <button>Remove</button>
+                                            <button onClick={() => handleRemoveFromCart(cartItem)}>Remove</button>
                                         </div>
                                     </div>
                                     <div className={styles.cartProductPrice}>
