@@ -6,6 +6,9 @@ import {
   Navigate
 } from 'react-router-dom'
 import axios from 'axios'
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css'
 
 import LoginForm from './components/LoginForm';
 
@@ -38,6 +41,7 @@ function App() {
   return (
     <div>
       {loaded && <BrowserRouter>
+      <ToastContainer />
         <Routes>
           <Route exact path='/signup' element={<Signup user={user} setUser={setUser}/>}/>
           <Route exact path='/login' element={<LoginForm user={user} setUser={setUser}/>}/>
