@@ -8,6 +8,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 32px;
 }
 
 .container {
@@ -28,7 +29,7 @@
     color: #F5F5F5;
     cursor: pointer;
     font-weight: bold;
-    font-size: 16px;
+    font-size: large;
     margin: 8px 8px;
     opacity: 1;
     transition: 0.5s ease;
@@ -48,12 +49,7 @@
 .title {
     color: #393433;;
     font-weight: bolder;
-    opacity: 1;
-    transition: 0.5s ease;
-}
-
-.title:hover {
-    opacity: 0.6
+    margin-top: 4px;
 }
 
 .link {
@@ -73,4 +69,22 @@
     -webkit-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
     -moz-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
     object-fit: cover;
+}
+
+.btn {
+    background-color: lightgray;
+    padding: 8px 24px;
+    border-radius: 12px;
+    border: none;
+    font-size: large;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    color: #393433;
+    text-shadow: 3px 3px 3px gray;
+    transition: 0.5s ease;
+}
+
+.btn:hover {
+    background-color: rgb(171, 171, 171);
 }

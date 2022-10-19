@@ -20,11 +20,14 @@ const SellList = ({ user }) => {
                 <>
                     {products.map((product, index) => {
                         return (
-                            <Link className={`${styles.container} ${styles.link}`} key={index} to={'/sell/' + product._id}>
-                                <img src={product?.image} alt="image" className={styles.img} />
-                                <h3 className={`${styles.product} ${styles.title}`}>{product.title}</h3>
-                                <h3 className={styles.product}>${product.price}</h3>
-                            </Link>
+                            <div className={`${styles.container} `} key={index}>
+                                <Link to={'/sell/' + product._id}className={`${styles.link} ${styles.img}`}>
+                                    <img src={product?.image} alt="image" className={styles.img} />
+                                </Link>
+                                    <h3 className={`${styles.product} ${styles.title}`}>{product.title}</h3>
+                                    <h3 className={styles.product}>${product.price}</h3>
+                                <button className={styles.btn}>Add to Cart</button>
+                            </div>
                         )
                     })}
                 </>

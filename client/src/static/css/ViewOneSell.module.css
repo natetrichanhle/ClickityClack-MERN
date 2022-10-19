@@ -29,7 +29,8 @@
 
 .link {
     background-color: lightgray;
-    padding: 8px 16px;
+    padding: 8px 24px;
+    margin: 8px;
     border-radius: 12px;
     font-size: large;
     cursor: pointer;

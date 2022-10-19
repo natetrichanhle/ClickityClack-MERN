@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+
 import { useGetAllProductsQuery } from '../slices/productsApi'
 
 import styles from '../static/css/Home.module.css'
