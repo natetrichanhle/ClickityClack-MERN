@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart, decreaseCart, removeFromCart } from "../slices/cartSlice";
+import { addToCart, clearCart, decreaseCart, getTotals, removeFromCart } from "../slices/cartSlice";
 
 import Navbar from '../components/Navbar'
 import styles from '../static/css/Cart.module.css'
@@ -10,6 +10,10 @@ import back from '../static/images/back.png'
 const Cart = ({ user, setUser }) => {
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getTotals());
+    }, [cart, dispatch])
 
     const handleRemoveFromCart = (cartItem) => {
         dispatch(removeFromCart(cartItem))
@@ -21,6 +25,10 @@ const Cart = ({ user, setUser }) => {
 
     const handleIncreaseCart = (cartItem) => {
         dispatch(addToCart(cartItem))
+    }
+
+    const handleClearCart = () => {
+        dispatch(clearCart())
     }
 
     return (
@@ -72,7 +80,7 @@ const Cart = ({ user, setUser }) => {
                             ))}
                         </div>
                         <div className={styles.cartSummary}>
-                            <button className={styles.clearCart}>Clear Cart</button>
+                            <button className={styles.clearCart} onClick={() => handleClearCart()}>Clear Cart</button>
                             <div className={styles.cartCheckout}>
                                 <div className={styles.subtotal}>
                                     <span>Subtotal</span>

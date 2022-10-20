@@ -20,7 +20,7 @@ const store = configureStore({
 });
 
 store.dispatch(productsFetch());
-// store.dispatch(getTotals());
+store.dispatch(getTotals());
 
 ReactDOM.render(
   <React.StrictMode>

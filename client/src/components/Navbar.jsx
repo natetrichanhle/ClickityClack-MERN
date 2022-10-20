@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 import styles from '../static/css/Navbar.module.css'
 
@@ -14,6 +15,7 @@ import chat from '../static/images/chat.png'
 import logoutIcon from '../static/images/logout.png'
 
 const Navbar = ({ user, setUser }) => {
+    const { cartTotalQuantity } = useSelector(state => state.cart)
     const navigate = useNavigate();
 
     const logout = () => {
@@ -59,7 +61,8 @@ const Navbar = ({ user, setUser }) => {
                             </Link>
                             <Link className={styles.link} to='/cart'>
                                 <img src={cart} alt="cart" className={styles.icons} />
-                                Cart
+                                <span className={styles.cartQuantity}>{cartTotalQuantity}</span>
+                                <span>Cart</span>
                             </Link>
                             <Link className={styles.link} onClick={logout}>
                                 <img src={logoutIcon} alt="logout" className={styles.icons} />
