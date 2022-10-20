@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart } from "../slices/cartSlice";
+import { addToCart, decreaseCart, removeFromCart } from "../slices/cartSlice";
 
 import Navbar from '../components/Navbar'
 import styles from '../static/css/Cart.module.css'
@@ -13,6 +13,14 @@ const Cart = ({ user, setUser }) => {
 
     const handleRemoveFromCart = (cartItem) => {
         dispatch(removeFromCart(cartItem))
+    }
+
+    const handleDecreaseCart = (cartItem) => {
+        dispatch(decreaseCart(cartItem))
+    }
+
+    const handleIncreaseCart = (cartItem) => {
+        dispatch(addToCart(cartItem))
     }
 
     return (
@@ -53,9 +61,9 @@ const Cart = ({ user, setUser }) => {
                                         ${cartItem.price}
                                     </div>
                                     <div className={styles.cartProductQuantity}>
-                                        <button>-</button>
+                                        <button onClick={() => handleDecreaseCart(cartItem)}>-</button>
                                         <div className={styles.count}>{cartItem.cartQuantity}</div>
-                                        <button>+</button>
+                                        <button onClick={() => handleIncreaseCart(cartItem)}>+</button>
                                     </div>
                                     <div className={styles.cartProductTotalPrice}>
                                         ${cartItem.price * cartItem.cartQuantity}
