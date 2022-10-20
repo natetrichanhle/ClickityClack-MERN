@@ -32,7 +32,7 @@ const LoginForm = ({ setUser, user }) => {
     }
 
     useEffect(() => {
-        user !== '' || user !== null && navigate('/')
+        user !== '' && navigate('/')
     }, [])
 
 

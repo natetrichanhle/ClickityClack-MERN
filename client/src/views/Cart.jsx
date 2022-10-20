@@ -6,6 +6,7 @@ import { addToCart, clearCart, decreaseCart, getTotals, removeFromCart } from ".
 import Navbar from '../components/Navbar'
 import styles from '../static/css/Cart.module.css'
 import back from '../static/images/back.png'
+import PayButton from "../components/PayButton";
 
 const Cart = ({ user, setUser }) => {
     const cart = useSelector((state) => state.cart);
@@ -87,7 +88,7 @@ const Cart = ({ user, setUser }) => {
                                     <span className={styles.amount}>${cart.cartTotalAmount}</span>
                                 </div>
                                 <p>Taxes and shipping calculated at checkout</p>
-                                <button>Checkout</button>
+                                <PayButton cartItems={cart.cartItems} user={user} />
                                 <div className={styles.continueShopping}>
                                     <Link to="/shop">
                                         <img src={back} alt="back-arrow" className={styles.backArrow} />
