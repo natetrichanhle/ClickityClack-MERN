@@ -23,7 +23,11 @@ const ProductSchema = new mongoose.Schema({
         ]
     },
     image: {
-        type: String,
+        type: Object,
+        required: [
+            true,
+            'Image is required'
+        ]
     },
     user: {
         type: String,

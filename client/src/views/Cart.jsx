@@ -59,7 +59,7 @@ const Cart = ({ user, setUser }) => {
                             {cart.cartItems?.map(cartItem => (
                                 <div className={styles.cartItem} key={cartItem._id}>
                                     <div className={styles.cartProduct}>
-                                        <img src={cartItem.image} alt={cartItem.name} />
+                                        <img src={cartItem.image.url} alt={cartItem.name} />
                                         <div>
                                             <h3>{cartItem.title}</h3>
                                             <p>{cartItem.description}</p>

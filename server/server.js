@@ -5,7 +5,8 @@ const jwt = require("jsonwebtoken");
 const express = require('express');
 const cors = require("cors");
 const app = express();
-const stripe = require('./routes/stripe')
+const stripe = require('./routes/stripe.routes')
+const productsRoute = require('./routes/products.routes')
 
 require("./config/mongoose.config")
 
@@ -24,6 +25,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api/stripe', stripe)
+app.use('/api/products', productsRoute)
 
 const UserRoutes = require("./routes/user.routes");
 UserRoutes(app);

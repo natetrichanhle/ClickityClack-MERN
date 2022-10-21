@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import styles from '../static/css/SellForm.module.css'
+import { productsCreate } from '../slices/productsSlice';
 import FileBase64 from 'react-file-base64';
 
 const SellForm = (props) => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const { initialTitle, initialDescription, initialPrice, initialImage, onSubmitProp, errors, user } = props;
     const [title, setTitle] = useState(initialTitle);
     const [description, setDescription] = useState(initialDescription);
@@ -14,8 +17,30 @@ const SellForm = (props) => {
 
     const onSubmitHandler = e => {
         e.preventDefault();
-        onSubmitProp({ title, description, price, image, user });
+        // onSubmitProp({ title, description, price, image, user });
+        dispatch(productsCreate({
+            title, description, price, image, user
+        }))
         navigate('/shop');
+    }
+
+    const handleProductImageUpload = (e) => {
+        const file = e.target.files[0];
+
+        transformFile(file)
+    }
+
+    const transformFile = (file) => {
+        const reader = new FileReader()
+
+        if(file) {
+            reader.readAsDataURL(file)
+            reader.onloadend = () => {
+                setImage(reader.result)
+            }
+        } else {
+            setImage('')
+        }
     }
 
     return (
@@ -23,10 +48,16 @@ const SellForm = (props) => {
             <div className={styles.formContainer}>
                 <form onSubmit={onSubmitHandler}>
                     {/* {errors.map((err,index) => <p key={index}>{err}</p>)} */}
-                    <FileBase64
+                    {/* <FileBase64
                         multiple={false}
                         value={image}
-                        onDone={({base64}) => setImage(base64)} />
+                        onDone={({base64}) => setImage(base64)} /> */}
+                    <input 
+                        type='file'
+                        accept='image/'
+                        onChange={handleProductImageUpload}
+                        required
+                    />
                     <input
                         type='text'
                         placeholder='Title'
