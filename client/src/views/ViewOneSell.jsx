@@ -32,7 +32,7 @@ const ViewOneSell = ({ user, setUser }) => {
             <Navbar user={user} setUser={setUser}/>
             {loaded &&
                 <div className={styles.viewOneContainer}>
-                    <img src={product?.image} alt="image" className={styles.img} />
+                    <img src={product?.image?.url} alt="image" className={styles.img} />
                     <h1>{product?.username}</h1>
                     <h1>{product?.title}</h1>
                     <h1>{product?.description}</h1>
