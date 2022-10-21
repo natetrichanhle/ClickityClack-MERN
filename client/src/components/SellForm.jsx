@@ -1,14 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
 import styles from '../static/css/SellForm.module.css'
-import { productsCreate } from '../slices/productsSlice';
-import FileBase64 from 'react-file-base64';
 
 const SellForm = (props) => {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     const { initialTitle, initialDescription, initialPrice, initialImage, onSubmitProp, errors, user } = props;
     const [title, setTitle] = useState(initialTitle);
     const [description, setDescription] = useState(initialDescription);
@@ -18,9 +14,6 @@ const SellForm = (props) => {
     const onSubmitHandler = e => {
         e.preventDefault();
         onSubmitProp({ title, description, price, image, user });
-        // dispatch(productsCreate({
-        //     title, description, price, image, user
-        // }))
         navigate('/shop');
     }
 
@@ -48,10 +41,6 @@ const SellForm = (props) => {
             <div className={styles.formContainer}>
                 <form onSubmit={onSubmitHandler}>
                     {/* {errors.map((err,index) => <p key={index}>{err}</p>)} */}
-                    {/* <FileBase64
-                        multiple={false}
-                        value={image}
-                        onDone={({base64}) => setImage(base64)} /> */}
                     <input 
                         type='file'
                         accept='image/'
