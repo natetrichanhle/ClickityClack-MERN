@@ -31,7 +31,7 @@ const Posts = ({user, setUser}) => {
                         {posts.map((post, index) => {
                             return(
                                 <Link className={`${styles.posts} ${styles.link}`} key={index} to={'/sell/' + post._id}>
-                                    <img src={post?.image} alt="image" className={styles.img} />
+                                    <img src={post?.image.url} alt="image" className={styles.img} />
                                     <h3 className={`${styles.product} ${styles.title}`}>{post.title}</h3>
                                     <h3 className={styles.product}>${post.price}</h3>
                                 </Link>
