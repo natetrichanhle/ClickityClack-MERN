@@ -29,6 +29,7 @@ const UserRoutes = require("./routes/user.routes");
 UserRoutes(app);
 require("./routes/user.routes")(app);
 require("./routes/product.routes")(app);
+require("./routes/order.routes")(app);
 
 app.listen(8000, () => {
     console.log("Listening at Port 8000");
