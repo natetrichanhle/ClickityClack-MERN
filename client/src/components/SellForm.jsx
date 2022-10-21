@@ -17,10 +17,10 @@ const SellForm = (props) => {
 
     const onSubmitHandler = e => {
         e.preventDefault();
-        // onSubmitProp({ title, description, price, image, user });
-        dispatch(productsCreate({
-            title, description, price, image, user
-        }))
+        onSubmitProp({ title, description, price, image, user });
+        // dispatch(productsCreate({
+        //     title, description, price, image, user
+        // }))
         navigate('/shop');
     }
 

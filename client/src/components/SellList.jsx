@@ -33,7 +33,7 @@ const SellList = ({ user }) => {
                         return (
                             <div className={`${styles.container} `} key={index}>
                                 <Link to={'/sell/' + product._id} className={`${styles.link} ${styles.img}`}>
-                                    <img src={product?.image.url} alt="image" className={styles.img} />
+                                    <img src={product?.image} alt="image" className={styles.img} />
                                 </Link>
                                 <h3 className={`${styles.product} ${styles.title}`}>{product.title}</h3>
                                 <h3 className={styles.product}>${product.price}</h3>
@@ -47,7 +47,7 @@ const SellList = ({ user }) => {
                     {products.map((product, index) => {
                         return (
                             <div className={`${styles.container} ${styles.link}`} key={index}>
-                                <img src={product?.image.url} alt="image" className={styles.img} />
+                                <img src={product?.image} alt="image" className={styles.img} />
                                 <h3 className={`${styles.product} ${styles.title}`}>{product.title}</h3>
                                 <h3 className={styles.product}>${product.price}</h3>
                             </div>
