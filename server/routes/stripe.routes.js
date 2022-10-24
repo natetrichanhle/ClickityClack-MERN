@@ -86,9 +86,9 @@ router.post('/create-checkout-session', async (req, res) => {
         phone_number_collection: {
             enabled: true
         },
-        customer: customer.id,
         line_items,
         mode: 'payment',
+        customer: customer.id,
         success_url: `${process.env.CLIENT_URL}/checkout-success`,
         cancel_url: `${process.env.CLIENT_URL}/cart`,
     });
@@ -99,13 +99,20 @@ router.post('/create-checkout-session', async (req, res) => {
 // Create Order
 
 const createOrder = async (customer, data) => {
-    // const Items = JSON.parse(customer.metadata.cart);
+    const Items = JSON.parse(customer.metadata.cart);
+
+    const products = Items.map((item) => {
+        return {
+            productId: item.id,
+            quantity: item.cartQuantity,
+        };
+    });
 
     const newOrder = new Order({
         userId: customer.metadata.userId,
         customerId: data.customer,
         paymentIntentId: data.payment_intent,
-        // products: Items,
+        products,
         subtotal: data.amount_subtotal,
         total: data.amount_total,
         shipping: data.customer_details,
@@ -128,22 +135,21 @@ let endpointSecret;
 
 // endpointSecret = process.env.STRIPE_CLI_SECRET;
 
-router.post('/webhook', express.raw({ type: 'application/json' }), (request, response) => {
-    const sig = request.headers['stripe-signature'];
-
+router.post('/webhook', express.json({ type: 'application/json' }), async (request, response) => {
+    
     let data;
     let eventType;
-
+    
     if (endpointSecret) {
         let event;
+        const sig = request.headers['stripe-signature'];
     
         try {
             event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
             console.log('Webhook verified.')
         } catch (err) {
             console.log(`Webhook Error: ${err.message}`)
-            response.status(400).send(`Webhook Error: ${err.message}`);
-            return;
+            return response.send(400);;
         }
 
         data = event.data.object;
@@ -157,14 +163,19 @@ router.post('/webhook', express.raw({ type: 'application/json' }), (request, res
 
     if(eventType === 'checkout.session.completed') {
         stripe.customers.retrieve(data.customer)
-        .then((customer) => {
+        .then( async (customer) => {
+            try {
                 createOrder(customer, data)
+            } catch (err) {
+                console.log(typeof createOrder);
+                console.log(err)
+            }
             })
         .catch(err => console.log(err.message));
     }
 
     // Return a 200 response to acknowledge receipt of the event
-    response.send().end();
+    response.send(200).end();
 });
 
 module.exports = router;
