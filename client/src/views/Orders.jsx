@@ -32,11 +32,17 @@ const Orders = ({user, setUser}) => {
                         {myOrders.map((order, index) => {
                             return (
                                 order.products.map((product, i) => {
+                                    const date = new Date(order.createdAt)
+                                    const subtotal = order?.subtotal / 100
                                     return (
-                                        <div key={i}>
-                                            {/* <h1>{order.shipping.name}</h1> */}
-                                            <h1>{product?.title}</h1>
-                                            <img src={product?.image} alt={product?.title} />
+                                        <div key={i} className={styles.orderInfo}>
+                                            <div className={styles.orderInfoTop}>
+                                                <h3>{date.toDateString()}</h3>
+                                                <h3>{product?.title}</h3>
+                                                <h3>${product?.price}</h3>
+                                                <h3>${subtotal}</h3>
+                                            </div>
+                                            <img src={product?.image} alt={product?.title} className={styles.img}/>
                                         </div>
                                     )
                                 })

@@ -7,7 +7,7 @@
 .container {
     background-color: lightgray;
     min-width: 300px;
-    height: calc(100vh - 132px);
+    height: 100vh;
     display: flex;
     justify-content: center;
     box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69) inset;
