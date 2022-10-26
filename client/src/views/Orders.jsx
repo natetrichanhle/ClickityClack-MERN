@@ -19,7 +19,7 @@ const Orders = ({user, setUser}) => {
 
     const myOrders = orders.filter(order => order.userId === user._id)
 
-    console.log(myOrders)
+    // console.log(myOrders)
 
     return (
         <div>
@@ -31,9 +31,15 @@ const Orders = ({user, setUser}) => {
                     <div>
                         {myOrders.map((order, index) => {
                             return (
-                                <div key={index}>
-                                    <h1>{order.shipping.name}</h1>
-                                </div>
+                                order.products.map((product, i) => {
+                                    return (
+                                        <div key={i}>
+                                            {/* <h1>{order.shipping.name}</h1> */}
+                                            <h1>{product?.title}</h1>
+                                            <img src={product?.image} alt={product?.title} />
+                                        </div>
+                                    )
+                                })
                             )
                         })}
                     </div>

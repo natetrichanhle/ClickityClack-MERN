@@ -4,9 +4,22 @@ import { url } from "../slices/api";
 const PayButton = ({ cartItems, user }) => {
 
     const handleCheckout = () => {
+        const cart = [];
+
+        for (let i = 0; i < cartItems.length; i++) {
+            cart.push({
+                id: cartItems[i].id,
+                title: cartItems[i].title,
+                description: cartItems[i].description,
+                price: cartItems[i].price,
+                image: cartItems[i].image.url,
+                cartQuantity: cartItems[i].cartQuantity,
+            })
+        }
+
         axios
             .post(`${url}/stripe/create-checkout-session`, {
-                cartItems,
+                cart,
                 userId: user._id,
             })
             .then((response) => {

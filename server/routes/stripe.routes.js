@@ -10,20 +10,22 @@ const router = express.Router()
 
 router.post('/create-checkout-session', async (req, res) => {
 
+    console.log(req.body.cart)
+
     const customer = await stripe.customers.create({
         metadata: {
             userId: req.body.userId,
-            // cart: JSON.stringify(req.body.cartItems),
+            cart: JSON.stringify(req.body.cart),
         },
     });
 
-    const line_items = req.body.cartItems.map((item) => {
+    const line_items = req.body.cart.map((item) => {
         return {
             price_data: {
                 currency: 'usd',
                 product_data: {
                     name: item.title,
-                    images: [item.image.url],
+                    images: [item.image],
                     metadata: {
                         id: item.id
                     }
@@ -103,8 +105,7 @@ const createOrder = async (customer, data) => {
 
     const products = Items.map((item) => {
         return {
-            productId: item.id,
-            quantity: item.cartQuantity,
+            ...item
         };
     });
 
@@ -166,6 +167,7 @@ router.post('/webhook', express.json({ type: 'application/json' }), async (reque
         .then( async (customer) => {
             try {
                 createOrder(customer, data)
+                console.log(data)
             } catch (err) {
                 console.log(typeof createOrder);
                 console.log(err)
