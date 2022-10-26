@@ -55,10 +55,10 @@ const Navbar = ({ user, setUser }) => {
                                 <img src={sell} alt="sell" className={styles.icons} />
                                 Sell
                             </Link>
-                            <Link className={styles.link} to='/chat'>
+                            {/* <Link className={styles.link} to='/chat'>
                                 <img src={chat} alt="chat" className={styles.icons} />
                                 Chat
-                            </Link>
+                            </Link> */}
                             <Link className={styles.link} to='/cart'>
                                 <img src={cart} alt="cart" className={styles.icons} />
                                 <span className={styles.cartQuantity}>{cartTotalQuantity}</span>

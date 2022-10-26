@@ -64,3 +64,37 @@
 .shipping {
     font-weight: 700;
 }
+
+.dropbtn {
+    color: darkred;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.dropbtn:hover {
+    text-decoration: underline;
+    color: darkcyan;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    padding: 8px;
+    border-radius: 8px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdownContent {display: block;}
+
+.infoSubheading {
+    text-transform: uppercase;
+    font-weight: 700 !important;
+}
