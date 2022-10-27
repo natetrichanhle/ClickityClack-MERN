@@ -26,6 +26,12 @@
     -moz-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
 }
 
+.formContainer form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .btn {
     padding: 8px 24px;
     background-color: grey;

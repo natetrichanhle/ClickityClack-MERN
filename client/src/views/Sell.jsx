@@ -16,11 +16,12 @@ const Sell = ({user, setUser}) => {
                 console.log(res.data)
             })
             .catch(err => {
-                const errorResponse = err.response.data.errors;
-                const errorArr = [];
-                for (const key of Object.keys(errorResponse)) {
+                const errorResponse = err.response.data.errors; // Get the errors from err.response.data
+                const errorArr = []; // Define a temp error array to push the messages in
+                for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
                     errorArr.push(errorResponse[key].message)
                 }
+                // Set Errors
                 setErrors(errorArr);
             })
     }
