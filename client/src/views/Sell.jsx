@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 import Navbar from '../components/Navbar'
 import SellForm from '../components/SellForm'
 import styles from '../static/css/Sell.module.css'
 
 const Sell = ({user, setUser}) => {
+    const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const [errors, setErrors] = useState([]);
 
@@ -13,7 +15,7 @@ const Sell = ({user, setUser}) => {
         axios.post('http://localhost:8000/api/product/new', product)
             .then(res => {
                 setProducts([...products, res.data]);
-                console.log(res.data)
+                navigate('/shop');
             })
             .catch(err => {
                 const errorResponse = err.response.data.errors; // Get the errors from err.response.data
@@ -24,7 +26,7 @@ const Sell = ({user, setUser}) => {
                 // Set Errors
                 setErrors(errorArr);
             })
-    }
+        }
 
     return (
         <div>
