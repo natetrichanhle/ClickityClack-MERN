@@ -11,47 +11,6 @@ const SellForm = (props) => {
     const [price, setPrice] = useState(initialPrice);
     const [image, setImage] = useState(initialImage);
 
-    const [titleValid, setTitleValid] = useState(true);
-    const [descriptionValid, setDescriptionValid] = useState(true);
-    const [priceValid, setPriceValid] = useState(true);
-
-    const titleErr = 'Title is required'
-    const descriptionErr = 'Description is required'
-    const priceErr = 'Price is required'
-
-    const handleTitle = (e) => {
-        const newTitle = e.target.value;
-        setTitle(newTitle);
-
-        if(!newTitle) {
-            setTitleValid(false);
-        } else {
-            setTitleValid(true);
-        }
-    }
-
-    const handleDescription = (e) => {
-        const newDescription = e.target.value;
-        setDescription(newDescription);
-
-        if(!newDescription) {
-            setDescriptionValid(false);
-        } else {
-            setDescriptionValid(true);
-        }
-    }
-
-    const handlePrice = (e) => {
-        const newPrice = e.target.value;
-        setPrice(newPrice);
-
-        if(!newPrice) {
-            setPriceValid(false);
-        } else {
-            setPriceValid(true);
-        }
-    }
-
     const onSubmitHandler = e => {
         e.preventDefault();
         onSubmitProp({ title, description, price, image, user });
@@ -85,6 +44,7 @@ const SellForm = (props) => {
                     <input 
                         type='file'
                         accept='image/'
+                        name='image'
                         onChange={handleProductImageUpload}
                         required
                     />
@@ -93,31 +53,28 @@ const SellForm = (props) => {
                         placeholder='Title'
                         value={title}
                         name='title'
-                        onChange={handleTitle}
+                        onChange={(e) => {setTitle(e.target.value)}}
                         className={styles.formInput}
+                        required
                     />
-                    {!titleValid && <p>{titleErr}</p>}
-                    <br />
                     <input
                         type='text'
                         placeholder='Description'
                         value={description}
                         name='description'
-                        onChange={handleDescription}
+                        onChange={(e) => {setDescription(e.target.value)}}
                         className={styles.formInput}
+                        required
                     />
-                    {!descriptionValid && <p>{descriptionErr}</p>}
-                    <br />
                     <input
                         type='number'
                         placeholder='Price'
                         value={price}
                         name='price'
-                        onChange={handlePrice}
+                        onChange={(e) => {setPrice(e.target.value)}}
                         className={styles.formInput}
+                        required
                     />
-                    {!priceValid && <p>{priceErr}</p>}
-                    <br />
                     <input type="submit" placeholder='Submit' className={styles.btn} />
                 </form>
             </div>
