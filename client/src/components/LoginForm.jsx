@@ -10,6 +10,34 @@ const LoginForm = ({ setUser, user }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const [emailValid, setEmailValid] = useState(true);
+    const [passwordValid, setPasswordValid] = useState(true);
+
+    const emailErr = 'Email is required'
+    const passwordErr = 'Password is required'
+
+    const handleEmail = (e) => {
+        const newEmail = e.target.value;
+        setEmail(newEmail);
+
+        if(!newEmail){
+            setEmailValid(false);
+        } else {
+            setEmailValid(true);
+        }
+    }
+
+    const handlePassword = (e) => {
+        const newPassword = e.target.value;
+        setPassword(newPassword);
+
+        if(!newPassword){
+            setPasswordValid(false);
+        } else {
+            setPasswordValid(true);
+        }
+    }
+
     const loginUser = (event) => {
         event.preventDefault();
         axios.post("http://localhost:8000/api/login",
@@ -48,19 +76,21 @@ const LoginForm = ({ setUser, user }) => {
                             value={email}
                             name="email"
                             placeholder="Email"
-                            onChange={(e) => { setEmail(e.target.value) }}
+                            onChange={handleEmail}
                             className={styles.formInput}
                             required
                         />
+                        {!emailValid && <p className={styles.err}>{emailErr}</p>}
                         <input
                             type="password"
                             value={password}
                             name="password"
                             placeholder="Password"
-                            onChange={(e) => { setPassword(e.target.value) }}
+                            onChange={handlePassword}
                             className={styles.formInput}
                             required
                         />
+                        {!passwordValid && <p className={styles.err}>{passwordErr}</p>}
                         <input
                             type="submit" placeholder="Log In" className={styles.submit}
                         />
