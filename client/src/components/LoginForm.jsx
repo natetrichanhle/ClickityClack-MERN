@@ -50,6 +50,7 @@ const LoginForm = ({ setUser, user }) => {
                             placeholder="Email"
                             onChange={(e) => { setEmail(e.target.value) }}
                             className={styles.formInput}
+                            required
                         />
                         <input
                             type="password"
@@ -58,6 +59,7 @@ const LoginForm = ({ setUser, user }) => {
                             placeholder="Password"
                             onChange={(e) => { setPassword(e.target.value) }}
                             className={styles.formInput}
+                            required
                         />
                         <input
                             type="submit" placeholder="Log In" className={styles.submit}

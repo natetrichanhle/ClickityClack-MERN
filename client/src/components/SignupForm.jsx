@@ -13,6 +13,61 @@ const SignupForm = ({ registerUser, page, user }) => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [avatar, setAvatar] = useState('');
 
+    const [usernameValid, setUsernameValid] = useState(true);
+    const [emailValid, setEmailValid] = useState(true);
+    const [passwordValid, setPasswordValid] = useState(true);
+    const [confirmPasswordValid, setConfirmPasswordValid] = useState(true);
+
+    const usernameErr = 'Username is required'
+    const emailErr = 'Email is required'
+    const passwordErr = 'Password is required'
+    const confirmPasswordErr = 'Passwords must match'
+
+    const handleUsername = (e) => {
+        const newUsername = e.target.value;
+        setUsername(newUsername);
+
+        if(!newUsername){
+            setUsernameValid(false);
+        } else {
+            setUsernameValid(true);
+        }
+    }
+
+    const handleEmail = (e) => {
+        const newEmail = e.target.value;
+        setEmail(newEmail);
+
+        if(!newEmail){
+            setEmailValid(false);
+        } else {
+            setEmailValid(true);
+        }
+    }
+
+    const handlePassword = (e) => {
+        const newPassword = e.target.value;
+        setPassword(newPassword);
+
+        if(!newPassword){
+            setPasswordValid(false);
+        } else {
+            setPasswordValid(true);
+        }
+    }
+
+    const handleConfirmPassword = (e) => {
+        const newConfirmPassword = e.target.value;
+        setConfirmPassword(newConfirmPassword);
+
+        if(!newConfirmPassword){
+            setConfirmPasswordValid(false);
+        } else {
+            setConfirmPasswordValid(true);
+        }
+    }
+
+
     useEffect(() => {
         if (page === 'Update User!') {
             setUsername(user.username)
@@ -41,24 +96,30 @@ const SignupForm = ({ registerUser, page, user }) => {
                             <FileBase64
                                 multiple={false}
                                 value={avatar}
-                                onDone={({ base64 }) => setAvatar(base64)} />
+                                onDone={({ base64 }) => setAvatar(base64)} 
+                                required
+                                />
                         </div>
                         <input
                             type="text"
                             value={username}
                             name="username"
                             placeholder="Username"
-                            onChange={(e) => { setUsername(e.target.value) }}
+                            onChange={handleUsername}
                             className={styles.formInput}
+                            required
                         />
+                        {!usernameValid && <p className={styles.err}>{usernameErr}</p>}
                         <input
                             type="email"
                             value={email}
                             name="email"
                             placeholder="Email"
-                            onChange={(e) => { setEmail(e.target.value) }}
+                            onChange={handleEmail}
                             className={styles.formInput}
+                            required
                         />
+                        {!emailValid && <p className={styles.err}>{emailErr}</p>}
                         {page === 'Sign Up!' &&
                             <>
                                 <input
@@ -66,17 +127,21 @@ const SignupForm = ({ registerUser, page, user }) => {
                                     value={password}
                                     name="password"
                                     placeholder="Password"
-                                    onChange={(e) => { setPassword(e.target.value) }}
+                                    onChange={handlePassword}
                                     className={styles.formInput}
+                                    required
                                 />
+                                {!passwordValid && <p className={styles.err}>{passwordErr}</p>}
                                 <input
                                     type="password"
                                     value={confirmPassword}
                                     name=""
                                     placeholder="Confirm Password"
-                                    onChange={(e) => { setConfirmPassword(e.target.value) }}
+                                    onChange={handleConfirmPassword}
                                     className={styles.formInput}
+                                    required
                                 />
+                                {!confirmPasswordValid && <p className={styles.err}>{confirmPasswordErr}</p>}
                             </>
                         }
                         <input

@@ -81,3 +81,7 @@
 .route:hover {
     opacity: 0.6;
 }
+
+.err {
+    color: rgb(197, 0, 0);
+}
