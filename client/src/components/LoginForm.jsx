@@ -9,34 +9,7 @@ const LoginForm = ({ setUser, user }) => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    const [emailValid, setEmailValid] = useState(true);
-    const [passwordValid, setPasswordValid] = useState(true);
-
-    const emailErr = 'Email is required'
-    const passwordErr = 'Password is required'
-
-    const handleEmail = (e) => {
-        const newEmail = e.target.value;
-        setEmail(newEmail);
-
-        if(!newEmail){
-            setEmailValid(false);
-        } else {
-            setEmailValid(true);
-        }
-    }
-
-    const handlePassword = (e) => {
-        const newPassword = e.target.value;
-        setPassword(newPassword);
-
-        if(!newPassword){
-            setPasswordValid(false);
-        } else {
-            setPasswordValid(true);
-        }
-    }
+    const [errors, setErrors] = useState([])
 
     const loginUser = (event) => {
         event.preventDefault();
@@ -56,7 +29,9 @@ const LoginForm = ({ setUser, user }) => {
                 navigate("/");
                 console.log(res);
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                setErrors(err.response.data.errors)
+            })
     }
 
     useEffect(() => {
@@ -76,21 +51,21 @@ const LoginForm = ({ setUser, user }) => {
                             value={email}
                             name="email"
                             placeholder="Email"
-                            onChange={handleEmail}
+                            onChange={e => {setEmail(e.target.value)}}
                             className={styles.formInput}
                             required
                         />
-                        {!emailValid && <p className={styles.err}>{emailErr}</p>}
+                        {errors.email && <p className={styles.err}>{errors.email.message}</p>}
                         <input
                             type="password"
                             value={password}
                             name="password"
                             placeholder="Password"
-                            onChange={handlePassword}
+                            onChange={e => {setPassword(e.target.value)}}
                             className={styles.formInput}
                             required
                         />
-                        {!passwordValid && <p className={styles.err}>{passwordErr}</p>}
+                        {errors.password && <p className={styles.err}>{errors.password.message}</p>}
                         <input
                             type="submit" placeholder="Log In" className={styles.submit}
                         />
