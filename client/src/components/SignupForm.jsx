@@ -5,68 +5,13 @@ import FileBase64 from 'react-file-base64';
 
 import styles from '../static/css/LoginSignup.module.css'
 
-const SignupForm = ({ registerUser, page, user }) => {
+const SignupForm = ({ registerUser, page, user, errors }) => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [avatar, setAvatar] = useState('');
-
-    const [usernameValid, setUsernameValid] = useState(true);
-    const [emailValid, setEmailValid] = useState(true);
-    const [passwordValid, setPasswordValid] = useState(true);
-    const [confirmPasswordValid, setConfirmPasswordValid] = useState(true);
-
-    const usernameErr = 'Username is required'
-    const emailErr = 'Email is required'
-    const passwordErr = 'Password is required'
-    const confirmPasswordErr = 'Passwords must match'
-
-    const handleUsername = (e) => {
-        const newUsername = e.target.value;
-        setUsername(newUsername);
-
-        if(!newUsername){
-            setUsernameValid(false);
-        } else {
-            setUsernameValid(true);
-        }
-    }
-
-    const handleEmail = (e) => {
-        const newEmail = e.target.value;
-        setEmail(newEmail);
-
-        if(!newEmail){
-            setEmailValid(false);
-        } else {
-            setEmailValid(true);
-        }
-    }
-
-    const handlePassword = (e) => {
-        const newPassword = e.target.value;
-        setPassword(newPassword);
-
-        if(!newPassword){
-            setPasswordValid(false);
-        } else {
-            setPasswordValid(true);
-        }
-    }
-
-    const handleConfirmPassword = (e) => {
-        const newConfirmPassword = e.target.value;
-        setConfirmPassword(newConfirmPassword);
-
-        if(!newConfirmPassword){
-            setConfirmPasswordValid(false);
-        } else {
-            setConfirmPasswordValid(true);
-        }
-    }
-
 
     useEffect(() => {
         if (page === 'Update User!') {
@@ -105,21 +50,21 @@ const SignupForm = ({ registerUser, page, user }) => {
                             value={username}
                             name="username"
                             placeholder="Username"
-                            onChange={handleUsername}
+                            onChange={e => {setUsername(e.target.value)}}
                             className={styles.formInput}
-                            required
+                            // required
                         />
-                        {!usernameValid && <p className={styles.err}>{usernameErr}</p>}
+                        {errors.username && <p className={styles.err}>{errors.username.message}</p>}
                         <input
                             type="email"
                             value={email}
                             name="email"
                             placeholder="Email"
-                            onChange={handleEmail}
+                            onChange={e => {setEmail(e.target.value)}}
                             className={styles.formInput}
-                            required
+                            // required
                         />
-                        {!emailValid && <p className={styles.err}>{emailErr}</p>}
+                        {errors.email && <p className={styles.err}>{errors.email.message}</p>}
                         {page === 'Sign Up!' &&
                             <>
                                 <input
@@ -127,25 +72,25 @@ const SignupForm = ({ registerUser, page, user }) => {
                                     value={password}
                                     name="password"
                                     placeholder="Password"
-                                    onChange={handlePassword}
+                                    onChange={e => {setPassword(e.target.value)}}
                                     className={styles.formInput}
-                                    required
+                                    // required
                                 />
-                                {!passwordValid && <p className={styles.err}>{passwordErr}</p>}
+                                {errors.password && <p className={styles.err}>{errors.password.message}</p>}
                                 <input
                                     type="password"
                                     value={confirmPassword}
                                     name=""
                                     placeholder="Confirm Password"
-                                    onChange={handleConfirmPassword}
+                                    onChange={e => {setConfirmPassword(e.target.value)}}
                                     className={styles.formInput}
-                                    required
+                                    // required
                                 />
-                                {!confirmPasswordValid && <p className={styles.err}>{confirmPasswordErr}</p>}
+                                {errors.confirmPassword && <p className={styles.err}>{errors.confirmPassword.message}</p>}
                             </>
                         }
                         <input
-                            type="submit" placeholder="Log In" className={styles.submit}
+                            type="submit" placeholder="Sign Up" className={styles.submit}
                         />
                     </form>
                     {page === 'Sign Up!' &&

@@ -9,47 +9,6 @@ const SellForm = (props) => {
     const [price, setPrice] = useState(initialPrice);
     const [image, setImage] = useState(initialImage);
 
-    const [titleValid, setTitleValid] = useState(true);
-    const [descriptionValid, setDescriptionValid] = useState(true);
-    const [priceValid, setPriceValid] = useState(true);
-
-    const titleErr = 'Title is required'
-    const descriptionErr = 'Description is required'
-    const priceErr = 'Price is required'
-
-    const handleTitle = (e) => {
-        const newTitle = e.target.value;
-        setTitle(newTitle);
-
-        if(!newTitle){
-            setTitleValid(false);
-        } else {
-            setTitleValid(true);
-        }
-    }
-
-    const handleDescription = (e) => {
-        const newDescription = e.target.value;
-        setDescription(newDescription);
-
-        if(!newDescription){
-            setDescriptionValid(false);
-        } else {
-            setDescriptionValid(true);
-        }
-    }
-
-    const handlePrice = (e) => {
-        const newPrice = e.target.value;
-        setPrice(newPrice);
-
-        if(!newPrice){
-            setPriceValid(false);
-        } else {
-            setPriceValid(true);
-        }
-    }
-
     const onSubmitHandler = e => {
         e.preventDefault();
         onSubmitProp({ title, description, price, image, user });
@@ -78,7 +37,6 @@ const SellForm = (props) => {
         <div className={styles.container}>
             <div className={styles.formContainer}>
                 <form onSubmit={onSubmitHandler}>
-                {errors.map((err, index) => <p key={index}>{err}</p>)}
                     <input 
                         type='file'
                         accept='image/'
@@ -92,11 +50,11 @@ const SellForm = (props) => {
                             placeholder='Title'
                             value={title}
                             name='title'
-                            onChange={handleTitle}
+                            onChange={e => {setTitle(e.target.value)}}
                             className={styles.formInput}
-                            required
+                            // required
                         />
-                        {!titleValid && <p className={styles.err}>{titleErr}</p>}
+                        {errors.title && <p className={styles.err}>{errors.title.message}</p>}
                     </p>
                     <p>
                         <input
@@ -104,11 +62,11 @@ const SellForm = (props) => {
                             placeholder='Description'
                             value={description}
                             name='description'
-                            onChange={handleDescription}
+                            onChange={e => {setDescription(e.target.value)}}
                             className={styles.formInput}
-                            required
+                            // required
                         />
-                        {!descriptionValid && <p className={styles.err}>{descriptionErr}</p>}
+                        {errors.description && <p className={styles.err}>{errors.description.message}</p>}
                     </p>
                     <p>
                         <input
@@ -116,11 +74,11 @@ const SellForm = (props) => {
                             placeholder='Price'
                             value={price}
                             name='price'
-                            onChange={handlePrice}
+                            onChange={e => {setPrice(e.target.value)}}
                             className={styles.formInput}
-                            required
+                            // required
                         />
-                        {!priceValid && <p className={styles.err}>{priceErr}</p>}
+                        {errors.price && <p className={styles.err}>{errors.price.message}</p>}
                     </p>
                     <input type="submit" placeholder='Submit' className={styles.btn} />
                 </form>
