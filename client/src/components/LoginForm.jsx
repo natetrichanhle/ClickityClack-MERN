@@ -20,7 +20,8 @@ const LoginForm = ({ setUser, user }) => {
             }),
             {
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem('access_token')}`
                 },
                 withCredentials: true,
             })
@@ -34,9 +35,9 @@ const LoginForm = ({ setUser, user }) => {
             })
     }
 
-    useEffect(() => {
-        user !== '' && navigate('/')
-    }, [])
+    // useEffect(() => {
+    //     user !== '' && navigate('/')
+    // }, [])
 
 
     return (
@@ -53,7 +54,7 @@ const LoginForm = ({ setUser, user }) => {
                             placeholder="Email"
                             onChange={e => {setEmail(e.target.value)}}
                             className={styles.formInput}
-                            required
+                            // required
                         />
                         {errors.email && <p className={styles.err}>{errors.email.message}</p>}
                         <input
@@ -63,7 +64,7 @@ const LoginForm = ({ setUser, user }) => {
                             placeholder="Password"
                             onChange={e => {setPassword(e.target.value)}}
                             className={styles.formInput}
-                            required
+                            // required
                         />
                         {errors.password && <p className={styles.err}>{errors.password.message}</p>}
                         <input

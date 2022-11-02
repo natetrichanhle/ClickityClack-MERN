@@ -20,16 +20,17 @@ const Signup = ({user, setUser}) => {
             }),
             {
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem('access_token')}`
                 },
                 withCredentials: true,
             })
             .then(res => {
                 setUser(res.data.user)
                 navigate("/login");
-                console.log(res)
             })
             .catch(err => {
+                console.log(err.response.data.errors)
                 setErrors(err.response.data.errors)
             })
     }

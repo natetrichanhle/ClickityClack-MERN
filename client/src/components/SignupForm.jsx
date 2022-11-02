@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios';
+import React, { useState, useEffect, useReducer } from 'react'
+import { Link } from 'react-router-dom'
 import FileBase64 from 'react-file-base64';
 
 import styles from '../static/css/LoginSignup.module.css'
 
 const SignupForm = ({ registerUser, page, user, errors }) => {
-    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
