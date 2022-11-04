@@ -3,7 +3,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font;
 }
 
 .container {
@@ -11,7 +11,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 32px 64px;
-    background-color: #F5F5F5;
+    background-color: $whiteColor;
     box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
     -webkit-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
     -moz-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
@@ -28,8 +28,8 @@
     cursor: pointer;
     font-weight: bold;
     text-decoration: none;
-    color: #393433;
-    text-shadow: 3px 3px 3px gray;
+    color: $blackColor;
+    text-shadow: 3px 3px 3px $darkGray;
     opacity: 1;
     transition: 0.5s ease;
     display: flex;
@@ -52,8 +52,8 @@
 }
 
 .cartQuantity {
-    background-color: #393433;
-    color: white;
+    background-color: $darkBlue;
+    color: $whiteColor;
     height: 20px;
     width: 20px;
     max-width: 100%;

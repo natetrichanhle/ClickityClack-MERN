@@ -35,44 +35,44 @@ const Navbar = ({ user, setUser }) => {
                 <img src={logo} alt="Logo" />
             </Link>
             <div>
-                <ul className={styles.links}>
+                <ul className='links'>
                     {user ? (
-                        <Link className={styles.link} to='/profile'>
-                            <img src={user.avatar} alt="avatar" className={styles.avatar} />
+                        <Link className='link' to='/profile'>
+                            <img src={user.avatar} alt="avatar" className='avatar' />
                             {user.username}
                         </Link>
                     ) : (<></>)}
-                    <Link className={styles.link} to='/'>
-                        <img src={home} alt="home" className={styles.icons} />
+                    <Link className='link' to='/'>
+                        <img src={home} alt="home" className='icons' />
                         Home
                     </Link>
-                    <Link className={styles.link} to='/shop'>
-                        <img src={shop} alt="shop" className={styles.icons} />
+                    <Link className='link' to='/shop'>
+                        <img src={shop} alt="shop" className='icons' />
                         Shop
                     </Link>
                     {user ? (
                         <>
-                            <Link className={styles.link} to='/sell'>
-                                <img src={sell} alt="sell" className={styles.icons} />
+                            <Link className='link' to='/sell'>
+                                <img src={sell} alt="sell" className='icons' />
                                 Sell
                             </Link>
-                            {/* <Link className={styles.link} to='/chat'>
-                                <img src={chat} alt="chat" className={styles.icons} />
+                            {/* <Link className='link' to='/chat'>
+                                <img src={chat} alt="chat" className='icons' />
                                 Chat
                             </Link> */}
-                            <Link className={styles.link} to='/cart'>
-                                <img src={cart} alt="cart" className={styles.icons} />
-                                <span className={styles.cartQuantity}>{cartTotalQuantity}</span>
+                            <Link className='link' to='/cart'>
+                                <img src={cart} alt="cart" className='icons' />
+                                <span className='cartQuantity'>{cartTotalQuantity}</span>
                                 <span>Cart</span>
                             </Link>
-                            <Link className={styles.link} onClick={logout}>
-                                <img src={logoutIcon} alt="logout" className={styles.icons} />
+                            <Link className='link' onClick={logout}>
+                                <img src={logoutIcon} alt="logout" className='icons' />
                                 Logout
                             </Link>
                         </>
                     ) : (
-                        <Link className={styles.link} to='/login'>
-                            <img src={login} alt="login" className={styles.icons} />
+                        <Link className='link' to='/login'>
+                            <img src={login} alt="login" className='icons' />
                             Login / Signup
                         </Link>
                     )}
