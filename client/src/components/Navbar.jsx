@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 
 import styles from '../static/css/Navbar.module.css'
+import '../static/scss/Navbar.css'
 
 import logo from "../static/images/Logo.png"
 import home from '../static/images/home.png'
@@ -29,7 +30,7 @@ const Navbar = ({ user, setUser }) => {
     }
 
     return (
-        <div className={styles.container}>
+        <div className='container'>
             <Link to="/">
                 <img src={logo} alt="Logo" />
             </Link>
