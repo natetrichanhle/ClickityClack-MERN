@@ -4,46 +4,46 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.container {
+.NavContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 32px 64px;
   background-color: white;
-  box-shadow: 10px 10px 50px -10px rgba(0, 0, 0, 0.69);
-  -webkit-box-shadow: 10px 10px 50px -10px rgba(0, 0, 0, 0.69);
-  -moz-box-shadow: 10px 10px 50px -10px rgba(0, 0, 0, 0.69);
+  box-shadow: 10px 10px 50px -10px #557a95;
+  -webkit-box-shadow: 10px 10px 50px -10px #557a95;
+  -moz-box-shadow: 10px 10px 50px -10px #557a95;
 }
 
-.links {
+.NavLinks {
   display: flex;
   list-style: none;
 }
 
-.link {
+.NavLink {
   font-size: large;
   padding: 10px 20px;
   cursor: pointer;
   font-weight: bold;
   text-decoration: none;
   color: #000;
-  text-shadow: 3px 3px 3px #5D5C61;
+  text-shadow: 3px 3px 3px #557a95;
   opacity: 1;
   transition: 0.5s ease;
   display: flex;
   align-items: center;
 }
 
-.link:hover {
+.NavLink:hover {
   opacity: 0.6;
 }
 
-.icons {
+.NavIcons {
   width: 32px;
   padding-right: 4px;
 }
 
-.avatar {
+.NavAvatar {
   height: 48px;
   margin-right: 8px;
   border-radius: 50%;

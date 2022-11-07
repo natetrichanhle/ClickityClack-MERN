@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 
-import styles from '../static/css/Navbar.module.css'
 import '../static/scss/Navbar.css'
 
 import logo from "../static/images/Logo.png"
@@ -30,49 +29,49 @@ const Navbar = ({ user, setUser }) => {
     }
 
     return (
-        <div className='container'>
+        <div className='NavContainer'>
             <Link to="/">
                 <img src={logo} alt="Logo" />
             </Link>
             <div>
-                <ul className='links'>
+                <ul className='NavLinks'>
                     {user ? (
-                        <Link className='link' to='/profile'>
-                            <img src={user.avatar} alt="avatar" className='avatar' />
+                        <Link className='NavLink' to='/profile'>
+                            <img src={user.avatar} alt="avatar" className='NavAvatar' />
                             {user.username}
                         </Link>
                     ) : (<></>)}
-                    <Link className='link' to='/'>
-                        <img src={home} alt="home" className='icons' />
+                    <Link className='NavLink' to='/'>
+                        <img src={home} alt="home" className='NavIcons' />
                         Home
                     </Link>
-                    <Link className='link' to='/shop'>
-                        <img src={shop} alt="shop" className='icons' />
+                    <Link className='NavLink' to='/shop'>
+                        <img src={shop} alt="shop" className='NavIcons' />
                         Shop
                     </Link>
                     {user ? (
                         <>
-                            <Link className='link' to='/sell'>
-                                <img src={sell} alt="sell" className='icons' />
+                            <Link className='NavLink' to='/sell'>
+                                <img src={sell} alt="sell" className='NavIcons' />
                                 Sell
                             </Link>
                             {/* <Link className='link' to='/chat'>
-                                <img src={chat} alt="chat" className='icons' />
+                                <img src={chat} alt="chat" className='NavIcons' />
                                 Chat
                             </Link> */}
-                            <Link className='link' to='/cart'>
-                                <img src={cart} alt="cart" className='icons' />
+                            <Link className='NavLink' to='/cart'>
+                                <img src={cart} alt="cart" className='NavIcons' />
                                 <span className='cartQuantity'>{cartTotalQuantity}</span>
                                 <span>Cart</span>
                             </Link>
-                            <Link className='link' onClick={logout}>
-                                <img src={logoutIcon} alt="logout" className='icons' />
+                            <Link className='NavLink' onClick={logout}>
+                                <img src={logoutIcon} alt="logout" className='NavIcons' />
                                 Logout
                             </Link>
                         </>
                     ) : (
-                        <Link className='link' to='/login'>
-                            <img src={login} alt="login" className='icons' />
+                        <Link className='NavLink' to='/login'>
+                            <img src={login} alt="login" className='NavIcons' />
                             Login / Signup
                         </Link>
                     )}

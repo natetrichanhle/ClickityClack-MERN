@@ -1,10 +1,12 @@
+@import '../variables/Variables.scss';
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font;
 }
 
-.container {
+.HomeContainer {
     display: flex;
     align-items: center;
     justify-content: center;

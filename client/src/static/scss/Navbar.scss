@@ -6,46 +6,46 @@
     font-family: $font;
 }
 
-.container {
+.NavContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 32px 64px;
     background-color: $whiteColor;
-    box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
-    -webkit-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
-    -moz-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69);
+    box-shadow: 10px 10px 50px -10px $darkBlue;
+    -webkit-box-shadow: 10px 10px 50px -10px $darkBlue;
+    -moz-box-shadow: 10px 10px 50px -10px $darkBlue;
 }
 
-.links {
+.NavLinks {
     display: flex;
     list-style: none;
 }
 
-.link {
+.NavLink {
     font-size: large;
     padding: 10px 20px;
     cursor: pointer;
     font-weight: bold;
     text-decoration: none;
     color: $blackColor;
-    text-shadow: 3px 3px 3px $darkGray;
+    text-shadow: 3px 3px 3px $darkBlue;
     opacity: 1;
     transition: 0.5s ease;
     display: flex;
     align-items: center;
 }
 
-.link:hover {
+.NavLink:hover {
     opacity: 0.6;
 }
 
-.icons  {
+.NavIcons  {
     width: 32px;
     padding-right: 4px;
 }
 
-.avatar {
+.NavAvatar {
     height: 48px;
     margin-right: 8px;
     border-radius: 50%;
