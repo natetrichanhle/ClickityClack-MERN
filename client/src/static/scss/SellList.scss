@@ -64,10 +64,29 @@
     font-weight: bold;
     text-decoration: none;
     color: $whiteColor;
-    text-shadow: 1px 1px 1px $whiteColor;
+    text-shadow: 3px 3px 3px $blackColor;
     transition: 0.5s ease;
 }
 
 .SellListBtn:hover {
     background-color: $lightBlue;
+}
+
+.deleteBtn {
+    padding: 8px 24px;
+    background-color: $redColor;
+    border: none;
+    border-radius: 8px;
+    color: $whiteColor;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: large;
+    margin: 8px 8px;
+    opacity: 1;
+    transition: 0.5s ease;
+    text-shadow: 3px 3px 3px $blackColor;
+}
+
+.deleteBtn:hover {
+    opacity: 0.6;
 }

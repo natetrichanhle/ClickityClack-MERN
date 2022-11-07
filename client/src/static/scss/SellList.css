@@ -63,10 +63,29 @@
   font-weight: bold;
   text-decoration: none;
   color: white;
-  text-shadow: 1px 1px 1px white;
+  text-shadow: 3px 3px 3px #000;
   transition: 0.5s ease;
 }
 
 .SellListBtn:hover {
   background-color: #7395ae;
+}
+
+.deleteBtn {
+  padding: 8px 24px;
+  background-color: #4f1b1d;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: large;
+  margin: 8px 8px;
+  opacity: 1;
+  transition: 0.5s ease;
+  text-shadow: 3px 3px 3px #000;
+}
+
+.deleteBtn:hover {
+  opacity: 0.6;
 }/*# sourceMappingURL=SellList.css.map */

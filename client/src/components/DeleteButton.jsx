@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-import styles from '../static/css/SellList.module.css'
+import '../static/scss/SellList.css'
 
 const DeleteButton = (props) => {
     const navigate = useNavigate()
@@ -19,7 +19,7 @@ const DeleteButton = (props) => {
     return (
         <div>
             <button 
-                className={styles.deleteBtn}
+                className='deleteBtn'
                 onClick={deleteProduct}
             >
                 Delete
