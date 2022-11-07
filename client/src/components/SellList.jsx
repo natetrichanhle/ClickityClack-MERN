@@ -6,7 +6,7 @@ import { useGetAllProductsQuery } from '../slices/productsApi'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../slices/cartSlice'
 
-import styles from '../static/css/SellList.module.css';
+import '../static/scss/SellList.css'
 
 const SellList = ({ user }) => {
     // const {data, error, isLoading} = useGetAllProductsQuery()
@@ -26,18 +26,18 @@ const SellList = ({ user }) => {
     }
 
     return (
-        <div className={styles.mainContainer}>
+        <div className='SellListMainContainer'>
             {user ? (
                 <>
                     {products.map((product, index) => {
                         return (
-                            <div className={`${styles.container} `} key={index}>
-                                <Link to={'/sell/' + product._id} className={`${styles.link} ${styles.img}`}>
-                                    <img src={product?.image.url} alt="image" className={styles.img} />
+                            <div className='SellListContainer' key={index}>
+                                <Link to={'/sell/' + product._id} className='SellListLink SellListImg'>
+                                    <img src={product?.image.url} alt="image" className='SellListImg' />
                                 </Link>
-                                <h3 className={`${styles.product} ${styles.title}`}>{product.title}</h3>
-                                <h3 className={styles.product}>${product.price}</h3>
-                                <button className={styles.btn} onClick={() => handleAddToCart(product)}>Add to Cart</button>
+                                <h3 className='SellListProduct SellListTitle'>{product.title}</h3>
+                                <h3 className='SellListProduct'>${product.price}</h3>
+                                <button className='SellListBtn' onClick={() => handleAddToCart(product)}>Add to Cart</button>
                             </div>
                         )
                     })}
@@ -46,10 +46,10 @@ const SellList = ({ user }) => {
                 <>
                     {products.map((product, index) => {
                         return (
-                            <div className={`${styles.container} ${styles.link}`} key={index}>
-                                <img src={product?.image.url} alt="image" className={styles.img} />
-                                <h3 className={`${styles.product} ${styles.title}`}>{product.title}</h3>
-                                <h3 className={styles.product}>${product.price}</h3>
+                            <div className='SellListContainer SellListLink' key={index}>
+                                <img src={product?.image.url} alt="image" className='SellListImg' />
+                                <h3 className='SellListProduct SellListTitle'>{product.title}</h3>
+                                <h3 className='SellListProduct'>${product.price}</h3>
                             </div>
                         )
                     })}
