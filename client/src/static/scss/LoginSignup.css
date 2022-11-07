@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+.LoginSignupContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: calc(100vh - 129px);
+}
+
+.LoginSignupInfoContainer {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 600px;
+  width: 400px;
+  border-radius: 24px;
+  box-shadow: 10px 10px 50px -10px #557a95;
+  -webkit-box-shadow: 10px 10px 50px -10px #557a95;
+  -moz-box-shadow: 10px 10px 50px -10px #557a95;
+}
+
+.LoginSignupFormHeader {
+  color: #557a95;
+  text-transform: uppercase;
+}
+
+.LoginSignupForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.LoginSignupFormInput {
+  padding: 16px;
+  margin: 8px;
+  border: none;
+  background-color: #938e94;
+  border-radius: 24px;
+  width: 250px;
+  transition: 0.25s ease;
+}
+
+.LoginSignupFormInput:hover {
+  opacity: 0.6;
+}
+
+.LoginSignupFormInput::-moz-placeholder {
+  color: #000;
+}
+
+.LoginSignupFormInput:-ms-input-placeholder {
+  color: #000;
+}
+
+.LoginSignupFormInput::placeholder {
+  color: #000;
+}
+
+.LoginSignupSubmit {
+  border: none;
+  margin-top: 8px;
+  padding: 12px 24px;
+  border-radius: 24px;
+  color: #000;
+  background-color: #557a95;
+  opacity: 1;
+  transition: 0.25s ease;
+}
+
+.LoginSignupSubmit:hover {
+  opacity: 0.6;
+}
+
+.LoginSignupRoute {
+  transition: 0.25s ease;
+  text-decoration: none;
+  color: #000;
+}
+
+.LoginSignupRoute:hover {
+  opacity: 0.6;
+}
+
+.err {
+  color: rgb(197, 0, 0);
+}
+
+.DarkBlue {
+  color: #557a95;
+}/*# sourceMappingURL=LoginSignup.css.map */

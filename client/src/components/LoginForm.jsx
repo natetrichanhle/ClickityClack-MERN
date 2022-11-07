@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 import Navbar from '../components/Navbar'
-import styles from '../static/css/LoginSignup.module.css'
+import '../static/scss/LoginSignup.css'
 
 const LoginForm = ({ setUser, user }) => {
     const navigate = useNavigate();
@@ -43,36 +43,36 @@ const LoginForm = ({ setUser, user }) => {
     return (
         <div>
             <Navbar user={user} setUser={setUser}/>
-            <div className={styles.container}>
-                <div className={styles.infoContainer}>
-                    <h1 className={styles.formHeader}>Log In!</h1>
-                    <form onSubmit={loginUser} className={styles.form}>
+            <div className='LoginSignupContainer'>
+                <div className='LoginSignupInfoContainer'>
+                    <h1 className='LoginSignupFormHeader'>Log In!</h1>
+                    <form onSubmit={loginUser} className='LoginSignupForm'>
                         <input
                             type="text"
                             value={email}
                             name="email"
                             placeholder="Email"
                             onChange={e => {setEmail(e.target.value)}}
-                            className={styles.formInput}
+                            className='LoginSignupFormInput'
                             // required
                         />
-                        {errors.email && <p className={styles.err}>{errors.email.message}</p>}
+                        {errors.email && <p className='err'>{errors.email.message}</p>}
                         <input
                             type="password"
                             value={password}
                             name="password"
                             placeholder="Password"
                             onChange={e => {setPassword(e.target.value)}}
-                            className={styles.formInput}
+                            className='LoginSignupFormInput'
                             // required
                         />
-                        {errors.password && <p className={styles.err}>{errors.password.message}</p>}
+                        {errors.password && <p className='err'>{errors.password.message}</p>}
                         <input
-                            type="submit" placeholder="Log In" className={styles.submit}
+                            type="submit" placeholder="Log In" className='LoginSignupSubmit'
                         />
                     </form>
-                    <Link to="/signup" className={styles.route}>
-                        Don't have an account? Sign up here.
+                    <Link to="/signup" className='LoginSignupRoute'>
+                        Don't have an account? <span className='DarkBlue'>Sign up here.</span>
                     </Link>
                 </div>
             </div>

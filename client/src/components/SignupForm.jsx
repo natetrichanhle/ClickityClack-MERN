@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useReducer } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import FileBase64 from 'react-file-base64';
 
-import styles from '../static/css/LoginSignup.module.css'
+import '../static/scss/LoginSignup.css'
 
 const SignupForm = ({ registerUser, page, user, errors }) => {
     const [username, setUsername] = useState('');
@@ -30,11 +30,11 @@ const SignupForm = ({ registerUser, page, user, errors }) => {
 
     return (
         <div>
-            <div className={styles.container}>
-                <div className={styles.infoContainer}>
-                    <h1 className={styles.formHeader}>{page}</h1>
-                    <form onSubmit={onSubmitHandler} className={styles.form}>
-                        <div className={styles.formInput}>
+            <div className='LoginSignupContainer'>
+                <div className='LoginSignupInfoContainer'>
+                    <h1 className='LoginSignupFormHeader'>{page}</h1>
+                    <form onSubmit={onSubmitHandler} className='LoginSignupForm'>
+                        <div className='LoginSignupFormInput'>
                             <label>Profile Picture</label>
                             <FileBase64
                                 multiple={false}
@@ -49,20 +49,20 @@ const SignupForm = ({ registerUser, page, user, errors }) => {
                             name="username"
                             placeholder="Username"
                             onChange={e => {setUsername(e.target.value)}}
-                            className={styles.formInput}
+                            className='LoginSignupFormInput'
                             // required
                         />
-                        {errors.username && <p className={styles.err}>{errors.username.message}</p>}
+                        {errors.username && <p className='err'>{errors.username.message}</p>}
                         <input
                             type="email"
                             value={email}
                             name="email"
                             placeholder="Email"
                             onChange={e => {setEmail(e.target.value)}}
-                            className={styles.formInput}
+                            className='LoginSignupFormInput'
                             // required
                         />
-                        {errors.email && <p className={styles.err}>{errors.email.message}</p>}
+                        {errors.email && <p className='err'>{errors.email.message}</p>}
                         {page === 'Sign Up!' &&
                             <>
                                 <input
@@ -71,30 +71,30 @@ const SignupForm = ({ registerUser, page, user, errors }) => {
                                     name="password"
                                     placeholder="Password"
                                     onChange={e => {setPassword(e.target.value)}}
-                                    className={styles.formInput}
+                                    className='LoginSignupFormInput'
                                     // required
                                 />
-                                {errors.password && <p className={styles.err}>{errors.password.message}</p>}
+                                {errors.password && <p className='err'>{errors.password.message}</p>}
                                 <input
                                     type="password"
                                     value={confirmPassword}
                                     name=""
                                     placeholder="Confirm Password"
                                     onChange={e => {setConfirmPassword(e.target.value)}}
-                                    className={styles.formInput}
+                                    className='LoginSignupFormInput'
                                     // required
                                 />
-                                {errors.confirmPassword && <p className={styles.err}>{errors.confirmPassword.message}</p>}
+                                {errors.confirmPassword && <p className='err'>{errors.confirmPassword.message}</p>}
                             </>
                         }
                         <input
-                            type="submit" placeholder="Sign Up" className={styles.submit}
+                            type="submit" placeholder="Sign Up" className='LoginSignupSubmit'
                         />
                     </form>
                     {page === 'Sign Up!' &&
                         <>
-                            <Link to="/login" className={styles.route}>
-                                Have an account already? <span className={styles.blue}>Log in here.</span>
+                            <Link to="/login" className='LoginSignupRoute'>
+                                Have an account already? <span className='DarkBlue'>Log in here.</span>
                             </Link>
                         </>
                     }
