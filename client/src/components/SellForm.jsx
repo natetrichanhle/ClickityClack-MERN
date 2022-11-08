@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import styles from '../static/css/SellForm.module.css'
+import '../static/scss/SellForm.css'
 
 const SellForm = (props) => {
     const { initialTitle, initialDescription, initialPrice, initialImage, onSubmitProp, errors, user } = props;
@@ -34,8 +34,9 @@ const SellForm = (props) => {
     }
 
     return (
-        <div className={styles.container}>
-            <div className={styles.formContainer}>
+        <div className='SellFormContainer'>
+            <div className='SellFormFormContainer'>
+                <h1 className='SellFormHeader'>POST AN ITEM TO SELL</h1>
                 <form onSubmit={onSubmitHandler}>
                     <input 
                         type='file'
@@ -51,10 +52,10 @@ const SellForm = (props) => {
                             value={title}
                             name='title'
                             onChange={e => {setTitle(e.target.value)}}
-                            className={styles.formInput}
+                            className='SellFormFormInput'
                             // required
                         />
-                        {errors.title && <p className={styles.err}>{errors.title.message}</p>}
+                        {errors.title && <p className='err'>{errors.title.message}</p>}
                     </p>
                     <p>
                         <input
@@ -63,10 +64,10 @@ const SellForm = (props) => {
                             value={description}
                             name='description'
                             onChange={e => {setDescription(e.target.value)}}
-                            className={styles.formInput}
+                            className='SellFormFormInput'
                             // required
                         />
-                        {errors.description && <p className={styles.err}>{errors.description.message}</p>}
+                        {errors.description && <p className='err'>{errors.description.message}</p>}
                     </p>
                     <p>
                         <input
@@ -75,12 +76,12 @@ const SellForm = (props) => {
                             value={price}
                             name='price'
                             onChange={e => {setPrice(e.target.value)}}
-                            className={styles.formInput}
+                            className='SellFormFormInput'
                             // required
                         />
-                        {errors.price && <p className={styles.err}>{errors.price.message}</p>}
+                        {errors.price && <p className='err'>{errors.price.message}</p>}
                     </p>
-                    <input type="submit" placeholder='Submit' className={styles.btn} />
+                    <input type="submit" placeholder='Submit' className='SellFormBtn' />
                 </form>
             </div>
         </div>

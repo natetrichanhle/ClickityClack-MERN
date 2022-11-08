@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 
+import '../static/scss/Sell.css'
+
 import Navbar from '../components/Navbar'
 import SellForm from '../components/SellForm'
-import styles from '../static/css/Sell.module.css'
 
 const Sell = ({user, setUser}) => {
     const navigate = useNavigate();
@@ -25,8 +26,7 @@ const Sell = ({user, setUser}) => {
     return (
         <div>
             <Navbar user={user} setUser={setUser}/>
-            <h1 className={styles.header}>POST AN ITEM TO SELL</h1>
-            <div className={styles.form}>
+            <div className='SellForm'>
                 <SellForm
                     onSubmitProp={createProduct}
                     errors={errors}

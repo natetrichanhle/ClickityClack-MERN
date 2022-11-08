@@ -1,0 +1,75 @@
+@import '../variables/Variables.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: $font;
+}
+
+.SellFormContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.SellFormFormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $whiteColor;
+    border-radius: 16px;
+    margin: 32px;
+    padding: 32px;
+    width: 400px;
+    height: 600px;
+    box-shadow: 10px 10px 50px -10px $darkBlue;
+    -webkit-box-shadow: 10px 10px 50px -10px $darkBlue;
+    -moz-box-shadow: 10px 10px 50px -10px $darkBlue;
+}
+
+.SellFormFormContainer form p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.SellFormHeader {
+    margin-bottom: 32px;
+    color: $darkBlue;
+}
+
+.SellFormBtn {
+    padding: 8px 24px;
+    background-color: $darkBlue;
+    border: none;
+    border-radius: 8px;
+    color: $whiteColor;
+    text-shadow: 3px 3px 3px $blackColor;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 8px 0px;
+    opacity: 1;
+    transition: 0.5s ease;
+}
+
+.SellFormBtn:hover {
+    opacity: 0.6;
+}
+
+.SellFormFormInput {
+    padding: 16px;
+    border: none;
+    margin: 8px 0px;
+    border-radius: 8px;
+    background-color: $formInput;
+}
+
+.SellFormFormInput::placeholder {
+    color: $blackColor;
+}
+
+.err {
+    color: $redColor;
+}
