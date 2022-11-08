@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addToCart, clearCart, decreaseCart, getTotals, removeFromCart } from "../slices/cartSlice";
 
 import Navbar from '../components/Navbar'
-import styles from '../static/css/Cart.module.css'
+import '../static/scss/Cart.css'
 import back from '../static/images/back.png'
 import PayButton from "../components/PayButton";
 
@@ -35,30 +35,30 @@ const Cart = ({ user, setUser }) => {
     return (
         <div>
             <Navbar user={user} setUser={setUser} />
-            <div className={styles.cartContainer}>
+            <div className='CartContainer'>
                 <h2>Shopping Cart</h2>
                 {cart.cartItems.length === 0 ? (
-                    <div className={styles.cartEmpty}>
+                    <div className='CartEmpty'>
                         <p>Your cart is currently empty</p>
-                        <div className={styles.startShopping}>
+                        <div className='StartShopping'>
                             <Link to="/shop">
-                                <img src={back} alt="back-arrow" className={styles.backArrow} />
+                                <img src={back} alt="back-arrow" className='BackArrow' />
                                 <span>Start Shopping</span>
                             </Link>
                         </div>
                     </div>
                 ) : (
                     <div>
-                        <div className={styles.titles}>
-                            <h3 className={styles.productTitle}>Product</h3>
-                            <h3 className={styles.price}>Price</h3>
-                            <h3 className={styles.quantity}>Quantity</h3>
-                            <h3 className={styles.total}>Total</h3>
+                        <div className='CartTitles'>
+                            <h3 className='ProductTitle'>Product</h3>
+                            <h3 className='Price'>Price</h3>
+                            <h3 className='Quantity'>Quantity</h3>
+                            <h3 className='Total'>Total</h3>
                         </div>
-                        <div className={styles.cartItems}>
+                        <div className='CartItems'>
                             {cart.cartItems?.map(cartItem => (
-                                <div className={styles.cartItem} key={cartItem._id}>
-                                    <div className={styles.cartProduct}>
+                                <div className='CartItem' key={cartItem._id}>
+                                    <div className='CartProduct'>
                                         <img src={cartItem.image.url} alt={cartItem.name} />
                                         <div>
                                             <h3>{cartItem.title}</h3>
@@ -66,32 +66,32 @@ const Cart = ({ user, setUser }) => {
                                             <button onClick={() => handleRemoveFromCart(cartItem)}>Remove</button>
                                         </div>
                                     </div>
-                                    <div className={styles.cartProductPrice}>
+                                    <div className='CartProductPrice'>
                                         ${cartItem.price}
                                     </div>
-                                    <div className={styles.cartProductQuantity}>
+                                    <div className='CartProductQuantity'>
                                         <button onClick={() => handleDecreaseCart(cartItem)}>-</button>
-                                        <div className={styles.count}>{cartItem.cartQuantity}</div>
+                                        <div className='Count'>{cartItem.cartQuantity}</div>
                                         <button onClick={() => handleIncreaseCart(cartItem)}>+</button>
                                     </div>
-                                    <div className={styles.cartProductTotalPrice}>
+                                    <div className='CartProductTotalPrice'>
                                         ${cartItem.price * cartItem.cartQuantity}
                                     </div>
                                 </div>
                             ))}
                         </div>
-                        <div className={styles.cartSummary}>
-                            <button className={styles.clearCart} onClick={() => handleClearCart()}>Clear Cart</button>
-                            <div className={styles.cartCheckout}>
-                                <div className={styles.subtotal}>
+                        <div className='CartSummary'>
+                            <button className='ClearCart' onClick={() => handleClearCart()}>Clear Cart</button>
+                            <div className='CartCheckout'>
+                                <div className='Subtotal'>
                                     <span>Subtotal</span>
-                                    <span className={styles.amount}>${cart.cartTotalAmount}</span>
+                                    <span className='Amount'>${cart.cartTotalAmount}</span>
                                 </div>
                                 <p>Taxes and shipping calculated at checkout</p>
                                 <PayButton cartItems={cart.cartItems} user={user} />
-                                <div className={styles.continueShopping}>
+                                <div className='ContinueShopping'>
                                     <Link to="/shop">
-                                        <img src={back} alt="back-arrow" className={styles.backArrow} />
+                                        <img src={back} alt="back-arrow" className='BackArrow' />
                                         <span>Continue Shopping</span>
                                     </Link>
                                 </div>
