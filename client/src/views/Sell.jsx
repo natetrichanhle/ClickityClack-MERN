@@ -35,6 +35,7 @@ const Sell = ({user, setUser}) => {
                     initialPrice=''
                     initialImage=''
                     user={user._id}
+                    page={'POST AN ITEM TO SELL'}
                 />
             </div>
         </div>

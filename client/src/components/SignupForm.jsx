@@ -52,7 +52,7 @@ const SignupForm = ({ registerUser, page, user, errors }) => {
                             className='LoginSignupFormInput'
                             // required
                         />
-                        {errors.username && <p className='err'>{errors.username.message}</p>}
+                        {/* {errors.username && <p className='err'>{errors.username.message}</p>} */}
                         <input
                             type="email"
                             value={email}
@@ -62,7 +62,7 @@ const SignupForm = ({ registerUser, page, user, errors }) => {
                             className='LoginSignupFormInput'
                             // required
                         />
-                        {errors.email && <p className='err'>{errors.email.message}</p>}
+                        {/* {errors.email && <p className='err'>{errors.email.message}</p>} */}
                         {page === 'Sign Up!' &&
                             <>
                                 <input
@@ -74,7 +74,7 @@ const SignupForm = ({ registerUser, page, user, errors }) => {
                                     className='LoginSignupFormInput'
                                     // required
                                 />
-                                {errors.password && <p className='err'>{errors.password.message}</p>}
+                                {/* {errors.password && <p className='err'>{errors.password.message}</p>} */}
                                 <input
                                     type="password"
                                     value={confirmPassword}
@@ -84,7 +84,7 @@ const SignupForm = ({ registerUser, page, user, errors }) => {
                                     className='LoginSignupFormInput'
                                     // required
                                 />
-                                {errors.confirmPassword && <p className='err'>{errors.confirmPassword.message}</p>}
+                                {/* {errors.confirmPassword && <p className='err'>{errors.confirmPassword.message}</p>} */}
                             </>
                         }
                         <input

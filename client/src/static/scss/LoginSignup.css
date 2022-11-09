@@ -70,7 +70,8 @@
   margin-top: 8px;
   padding: 12px 24px;
   border-radius: 24px;
-  color: #000;
+  color: white;
+  text-shadow: 3px 3px 3px #000;
   background-color: #557a95;
   opacity: 1;
   transition: 0.25s ease;

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import '../static/scss/SellForm.css'
 
 const SellForm = (props) => {
-    const { initialTitle, initialDescription, initialPrice, initialImage, onSubmitProp, errors, user } = props;
+    const { initialTitle, initialDescription, initialPrice, initialImage, onSubmitProp, errors, user, page} = props;
     const [title, setTitle] = useState(initialTitle);
     const [description, setDescription] = useState(initialDescription);
     const [price, setPrice] = useState(initialPrice);
@@ -36,7 +36,7 @@ const SellForm = (props) => {
     return (
         <div className='SellFormContainer'>
             <div className='SellFormFormContainer'>
-                <h1 className='SellFormHeader'>POST AN ITEM TO SELL</h1>
+                <h1 className='SellFormHeader'>{page}</h1>
                 <form onSubmit={onSubmitHandler}>
                     <input 
                         type='file'
@@ -55,7 +55,7 @@ const SellForm = (props) => {
                             className='SellFormFormInput'
                             // required
                         />
-                        {errors.title && <p className='err'>{errors.title.message}</p>}
+                        {/* {errors.title && <p className='err'>{errors.title.message}</p>} */}
                     </p>
                     <p>
                         <input
@@ -67,7 +67,7 @@ const SellForm = (props) => {
                             className='SellFormFormInput'
                             // required
                         />
-                        {errors.description && <p className='err'>{errors.description.message}</p>}
+                        {/* {errors.description && <p className='err'>{errors.description.message}</p>} */}
                     </p>
                     <p>
                         <input
@@ -79,7 +79,7 @@ const SellForm = (props) => {
                             className='SellFormFormInput'
                             // required
                         />
-                        {errors.price && <p className='err'>{errors.price.message}</p>}
+                        {/* {errors.price && <p className='err'>{errors.price.message}</p>} */}
                     </p>
                     <input type="submit" placeholder='Submit' className='SellFormBtn' />
                 </form>

@@ -3,9 +3,7 @@ import axios from 'axios'
 import { useParams, useNavigate } from 'react-router-dom'
 
 import SellForm from '../components/SellForm'
-import DeleteButton from '../components/DeleteButton'
 import Navbar from '../components/Navbar'
-import styles from '../static/css/UpdateSell.module.css'
 
 const UpdateSell = ({user, setUser}) => {
     const navigate = useNavigate();
@@ -30,7 +28,6 @@ const UpdateSell = ({user, setUser}) => {
     return (
         <div>
             <Navbar user={user} setUser={setUser}/>
-            <h1 className={styles.header}>UPDATE YOUR PRODUCT</h1>
             {loaded && (
                 <>
                     <SellForm 
@@ -38,11 +35,8 @@ const UpdateSell = ({user, setUser}) => {
                         initialTitle={product?.title}
                         initialDescription={product?.description}
                         initialPrice={product?.price}
+                        page={'UPDATE YOUR ITEM'}
                     />
-                    {/* <DeleteButton 
-                        productId={product._id}
-                        successCallback = {() => navigate('/shop')}
-                    /> */}
                 </>
             )}
         </div>
