@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-import styles from '../static/css/Posts.module.css'
+import '../static/scss/Posts.css'
 
 import Navbar from '../components/Navbar'
 import ProfileSideNav from '../components/ProfileSideNav'
@@ -23,17 +23,17 @@ const Posts = ({user, setUser}) => {
     return (
         <div>
             <Navbar user={user} setUser={setUser}/>
-            <div className={styles.container}>
+            <div className='PostsMainContainer'>
                 <ProfileSideNav />
-                <div className={styles.profileContainer}>
-                    <h1 className={styles.header}>Posts</h1>
-                    <div className={styles.postContainer}>
+                <div className='PostsContainer'>
+                    <h1 className='PostsHeader'>Posts</h1>
+                    <div className='PostsInfo'>
                         {posts.map((post, index) => {
                             return(
-                                <Link className={`${styles.posts} ${styles.link}`} key={index} to={'/sell/' + post._id}>
-                                    <img src={post?.image.url} alt="image" className={styles.img} />
-                                    <h3 className={`${styles.product} ${styles.title}`}>{post.title}</h3>
-                                    <h3 className={styles.product}>${post.price}</h3>
+                                <Link className='Posts PostLink' key={index} to={'/sell/' + post._id}>
+                                    <img src={post?.image.url} alt="image" className='PostsImg' />
+                                    <h3 className='PostsProduct PostsTitle'>{post.title}</h3>
+                                    <h3 className='PostsProduct'>${post.price}</h3>
                                 </Link>
                             )
                         })}
