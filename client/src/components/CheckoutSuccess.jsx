@@ -1,13 +1,12 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 
-import styles from '../static/css/CheckoutSuccess.module.css'
-
+import '../static/scss/CheckoutSuccess.css'
 const CheckoutSuccess = ({ user, setUser }) => {
     return (
         <div>
             <Navbar user={user} setUser={setUser} />
-            <h2 className={styles.checkout}>Checkout Success!</h2>
+            <h2 className='Checkout'>Checkout Success!</h2>
         </div>
     )
 }

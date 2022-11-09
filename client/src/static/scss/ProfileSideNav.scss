@@ -1,45 +1,44 @@
+@import '../variables/Variables.scss';
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font;
 }
 
-.container {
-    background-color: lightgray;
+.ProfileSideNavContainer {
+    background-color: $darkBlue;
     min-width: 300px;
     height: 100vh;
     display: flex;
     justify-content: center;
-    box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69) inset;
-    -webkit-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69) inset;
-    -moz-box-shadow: 10px 10px 50px -10px rgba(0,0,0,0.69) inset;
 }
 
-.links {
+.ProfileSideNavLinks {
     display: flex;
     flex-direction: column;
     margin-top: 24px;
 }
 
-.link {
+.ProfileSideNavLink {
     font-size: large;
     margin: 8px;
     cursor: pointer;
     font-weight: bold;
     text-decoration: none;
-    color: #393433;
-    text-shadow: 3px 3px 3px gray;
+    color: $whiteColor;
+    text-shadow: 3px 3px 3px $blackColor;
     opacity: 1;
     transition: 0.5s ease;
     display: flex;
     align-items: center;
 }
 
-.link:hover {
+.ProfileSideNavLink:hover {
     opacity: 0.6;
 }
 
-.icons  {
+.ProfileSideNavIcons  {
     width: 32px;
     padding-right: 4px;
 }

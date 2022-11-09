@@ -1,25 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import styles from '../static/css/ProfileSideNav.module.css'
+import '../static/scss/ProfileSideNav.css'
 import post from '../static/images/post.png'
 import avatar from '../static/images/avatar.png'
 import orders from '../static/images/orders.png'
 
 const ProfileSideNav = () => {
     return (
-        <div className={styles.container}>
-            <ul className={styles.links}>
-                <Link to="/profile" className={styles.link}>
-                    <img src={avatar} alt="avatar" className={styles.icons} />
+        <div className='ProfileSideNavContainer'>
+            <ul className='ProfileSideNavLinks'>
+                <Link to="/profile" className='ProfileSideNavLink'>
+                    <img src={avatar} alt="avatar" className='ProfileSideNavIcons' />
                     Profile
                 </Link>
-                <Link to="/posts" className={styles.link}>
-                    <img src={post} alt="post" className={styles.icons}/>
+                <Link to="/posts" className='ProfileSideNavLink'>
+                    <img src={post} alt="post" className='ProfileSideNavIcons'/>
                     Posts
                 </Link>
-                <Link to="/orders" className={styles.link}>
-                    <img src={orders} alt="orders" className={styles.icons}/>
+                <Link to="/orders" className='ProfileSideNavLink'>
+                    <img src={orders} alt="orders" className='ProfileSideNavIcons'/>
                     Orders
                 </Link>
             </ul>

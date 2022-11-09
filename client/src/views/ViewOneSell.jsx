@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom'
 
 import Navbar from '../components/Navbar'
 import DeleteButton from '../components/DeleteButton'
-import styles from '../static/css/ViewOneSell.module.css'
+import '../static/scss/ViewOneSell.css'
 
 const ViewOneSell = ({ user, setUser }) => {
     const { id } = useParams()
@@ -31,15 +31,15 @@ const ViewOneSell = ({ user, setUser }) => {
         <div>
             <Navbar user={user} setUser={setUser}/>
             {loaded &&
-                <div className={styles.viewOneContainer}>
-                    <img src={product?.image?.url} alt="image" className={styles.img} />
+                <div className='ViewOneContainer'>
+                    <img src={product?.image?.url} alt="image" className='ViewOneImg' />
                     <h1>{product?.username}</h1>
                     <h1>{product?.title}</h1>
                     <h1>{product?.description}</h1>
                     <h1>${product?.price}</h1>
                     {user._id === product.user ? (
-                        <div className={styles.btns }>
-                            <Link to={`/sell/edit/${product?._id}`} className={styles.link}>Edit</Link>
+                        <div className='ViewOneBtns'>
+                            <Link to={`/sell/edit/${product?._id}`} className='ViewOneLink'>Edit</Link>
                             <DeleteButton
                                 productId={product._id}
                                 successCallback={() => removeFromDom(product._id)}

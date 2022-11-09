@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+.ProfileSideNavContainer {
+  background-color: #557a95;
+  min-width: 300px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.ProfileSideNavLinks {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+}
+
+.ProfileSideNavLink {
+  font-size: large;
+  margin: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  text-shadow: 3px 3px 3px #000;
+  opacity: 1;
+  transition: 0.5s ease;
+  display: flex;
+  align-items: center;
+}
+
+.ProfileSideNavLink:hover {
+  opacity: 0.6;
+}
+
+.ProfileSideNavIcons {
+  width: 32px;
+  padding-right: 4px;
+}/*# sourceMappingURL=ProfileSideNav.css.map */

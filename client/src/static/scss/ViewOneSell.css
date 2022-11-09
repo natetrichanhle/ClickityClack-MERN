@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+.ViewOneContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: calc(100vh - 132px);
+}
+
+.ViewOneContainer h1 {
+  padding: 8px;
+}
+
+.ViewOneImg {
+  height: 50%;
+  width: 50%;
+  border-radius: 24px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 10px 10px 50px -10px #557a95;
+  -webkit-box-shadow: 10px 10px 50px -10px #557a95;
+  -moz-box-shadow: 10px 10px 50px -10px #557a95;
+}
+
+.ViewOneLink {
+  padding: 8px 24px;
+  background-color: #557a95;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: large;
+  margin: 8px 8px;
+  opacity: 1;
+  text-decoration: none;
+  transition: 0.5s ease;
+  text-shadow: 3px 3px 3px #000;
+}
+
+.ViewOneLink:hover {
+  opacity: 0.6;
+}
+
+.ViewOneBtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}/*# sourceMappingURL=ViewOneSell.css.map */

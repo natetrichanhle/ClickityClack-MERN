@@ -35,9 +35,9 @@ const UpdateSell = ({user, setUser}) => {
                 <>
                     <SellForm 
                         onSubmitProp={updateProduct}
-                        initialTitle={product.title}
-                        initialDescription={product.description}
-                        initialPrice={product.price}
+                        initialTitle={product?.title}
+                        initialDescription={product?.description}
+                        initialPrice={product?.price}
                     />
                     {/* <DeleteButton 
                         productId={product._id}
