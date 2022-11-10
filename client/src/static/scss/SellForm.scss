@@ -27,12 +27,14 @@
     box-shadow: 10px 10px 50px -10px $darkBlue;
     -webkit-box-shadow: 10px 10px 50px -10px $darkBlue;
     -moz-box-shadow: 10px 10px 50px -10px $darkBlue;
-}
 
-.SellFormFormContainer form p {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    form {
+        p {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
 }
 
 .SellFormHeader {
