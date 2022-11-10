@@ -34,17 +34,17 @@
 }
 
 .OrderInfoTop {
-    display: flex;  
+    display: flex;
     justify-content: space-between;
 }
 
 .OrderInfo {
     display: flex;
     flex-direction: column;
-}
 
-.OrderInfo h3 {
-    font-weight: 400;
+    h3 {
+        font-weight: 400;
+    }
 }
 
 .OrderProductInfo {
@@ -91,7 +91,9 @@
     z-index: 1;
 }
 
-.OrderDropDown:hover .OrderDropDownContent {display: block;}
+.OrderDropDown:hover .OrderDropDownContent {
+    display: block;
+}
 
 .OrderInfoSubheading {
     text-transform: uppercase;
