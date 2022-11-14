@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://0.0.0.0:27017/clickityclack", {
+// "mongodb://0.0.0.0:27017/clickityclack" windows
+// "mongodb://localhost/clickityclack"
+mongoose.connect("mongodb://localhost/clickityclack", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
